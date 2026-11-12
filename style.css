@@ -2044,3 +2044,305 @@ body {
     margin-top: 20px;
   }
 }
+
+/* ========================================================
+   PANTALLA BRANDS: HERO ANIMADO (BRAND IN A BOX)
+   ======================================================== */
+.brands-hero-container {
+  /* Al tener 250vh, nos da 1.5 pantallas completas de tiempo de scroll para la animación */
+  height: 250vh; 
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.brands-sticky-wrapper {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: #000000; /* Fondo base como en tu imagen */
+}
+
+/* Título Principal */
+.bh-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  color: #ffffff;
+  margin: 0;
+  position: absolute;
+  font-weight: 400;
+  /* Posición inicial: Abajo y al centro */
+  top: 75%; 
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  white-space: nowrap;
+  letter-spacing: 0.04em;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9);
+  will-change: top, transform; /* Optimización de hardware */
+}
+
+/* Subtítulo Inferior */
+.bh-subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  color: #cccccc;
+  text-align: center;
+  line-height: 1.4;
+  position: absolute;
+  bottom: 12%;
+  /* Posición inicial: Oculto y un poco más abajo */
+  opacity: 0;
+  transform: translateY(20px);
+  will-change: opacity, transform;
+}
+
+/* =========================================
+   CURSOR PERSONALIZADO (LOGO)
+   ========================================= */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 32px; /* Tamaño pequeño ideal para cursor */
+  height: 32px;
+  pointer-events: none;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Eliminamos el fondo blanco circular y la sombra sólida */
+  background-color: transparent;
+  box-shadow: none;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.5);
+  transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cursor-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  /* Sombra sutil para que resalte si pasa por una zona del mismo color */
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6));
+  transition: transform 0.25s ease;
+}
+
+/* Estado normal visible */
+.custom-cursor.is-active {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Cuando haces hover sobre un proyecto (crece un poco el logo) */
+.custom-cursor.is-active .cursor-logo {
+  transform: scale(1.3);
+}
+
+/* =========================================
+   ESTADO DEL CURSOR (CLIENTES)
+   ========================================= */
+/* Sobreescribimos el is-client anterior que tenía el círculo rojo vino */
+.custom-cursor.is-client {
+  background-color: transparent !important; 
+  transform: translate(-50%, -50%) scale(1.6) !important;
+  opacity: 1 !important; 
+}
+
+/* ========================================================
+   PANTALLA BRANDS: VIDEOS APILADOS
+   ======================================================== */
+.brands-video-stack {
+  width: 100%;
+  max-width: 1360px; /* Mantiene la alineación con tu menú y pie de página */
+  margin: 0 auto 140px;
+  padding: 0 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px; /* El espacio fino entre ambos videos */
+  position: relative;
+  z-index: 2; /* Asegura que pase por encima del Hero sticky al hacer scroll */
+}
+
+.video-stack-wrapper {
+  width: 100%;
+  aspect-ratio: 16 / 9; /* Proporción rectangular estándar */
+  border-radius: 8px; /* Bordes ligeramente redondeados, ajusta si los quieres rectos (0px) */
+  background-color: #111111;
+  overflow: hidden;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6);
+  /* Optimiza el rendimiento de la animación de script.js */
+  will-change: filter, opacity; 
+}
+
+.stacked-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Responsividad para pantallas más pequeñas */
+@media (max-width: 900px) {
+  .brands-video-stack {
+    padding: 0 24px;
+    gap: 16px;
+    margin-bottom: 80px;
+  }
+}
+
+/* ========================================================
+   PANTALLA BRANDS: WE CREATE BRANDING (BANNER 3)
+   ======================================================== */
+.branding-feature-section {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto 160px;
+  padding: 0 48px;
+  position: relative;
+  z-index: 2;
+}
+
+.bf-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+/* --- Lado del Texto --- */
+.bf-content {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.bf-tagline {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: #cccccc;
+  letter-spacing: 0.02em;
+}
+
+.bf-title {
+  font-family: var(--font-heading);
+  font-weight: 400; /* Evita el "faux bold" de nuevo */
+  font-size: clamp(2.5rem, 4vw, 3.8rem);
+  line-height: 1.15;
+  color: #ffffff;
+  margin: 0;
+}
+
+.bf-desc {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #a3a3a3;
+  max-width: 480px;
+}
+
+/* Botón de texto tipo píldora con efecto cristal */
+.glass-btn-text {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 36px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 40px;
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  text-decoration: none;
+  width: fit-content;
+  /* El efecto cristal */
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-btn-text:hover {
+  background: #ffffff;
+  color: #000000;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
+}
+
+/* --- Lado de la Imagen (Con borde de Cristal) --- */
+.bf-image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5; /* Formato de retrato como en tu diseño */
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: none; /* Para usar tu logo personalizado de cursor */
+  
+  /* Contenedor de cristal sutil */
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+}
+
+/* Imágenes absolutas apiladas */
+.bf-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+/* Estado normal sin hacer hover (solo se ve la primera) */
+.bf-image-wrapper:not(:hover) .bf-img-1 {
+  opacity: 1;
+}
+
+/* ==============================================
+   ANIMACIÓN: CROSSFADE DE 4 IMÁGENES AL HACER HOVER
+   ============================================== */
+
+/* Estado normal sin hacer hover (solo se ve la primera) */
+.bf-image-wrapper:not(:hover) .bf-img-1 { opacity: 1; }
+.bf-image-wrapper:not(:hover) .bf-img-2,
+.bf-image-wrapper:not(:hover) .bf-img-3,
+.bf-image-wrapper:not(:hover) .bf-img-4 { opacity: 0; }
+
+/* Cuando el cursor entra, cada imagen arranca una animación de 8s sincronizada */
+.bf-image-wrapper:hover .bf-img-1 { animation: slide1 5s infinite; }
+.bf-image-wrapper:hover .bf-img-2 { animation: slide2 5s infinite; }
+.bf-image-wrapper:hover .bf-img-3 { animation: slide3 5s infinite; }
+.bf-image-wrapper:hover .bf-img-4 { animation: slide4 5s infinite; }
+
+/* Líneas de tiempo exactas (cada imagen brilla un 25% del tiempo total) */
+@keyframes slide1 {
+  0%, 20%  { opacity: 1; }
+  25%, 95% { opacity: 0; }
+  100%     { opacity: 1; }
+}
+
+@keyframes slide2 {
+  0%, 20%  { opacity: 0; }
+  25%, 45% { opacity: 1; }
+  50%, 100%{ opacity: 0; }
+}
+
+@keyframes slide3 {
+  0%, 45%  { opacity: 0; }
+  50%, 70% { opacity: 1; }
+  75%, 100%{ opacity: 0; }
+}
+
+@keyframes slide4 {
+  0%, 70%  { opacity: 0; }
+  75%, 95% { opacity: 1; }
+  100%     { opacity: 0; }
+}

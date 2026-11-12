@@ -421,3 +421,114 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+/* ========================================================
+     10. ANIMACIÓN DE SCROLL: BRAND IN A BOX (brands.html)
+     ======================================================== */
+  const brandHeroSection = document.getElementById('brandsHeroContainer');
+  const brandTitle = document.getElementById('bhTitle');
+  const brandSubtitle = document.getElementById('bhSubtitle');
+
+  if (brandHeroSection && brandTitle && brandSubtitle) {
+    let tickingHero = false;
+
+    function updateBrandHero() {
+      const rect = brandHeroSection.getBoundingClientRect();
+      const scrollDistance = rect.height - window.innerHeight;
+      
+      // Calculamos el progreso (de 0 a 1) basándonos en cuánto hemos bajado en este contenedor
+      let progress = -rect.top / scrollDistance;
+      progress = Math.max(0, Math.min(1, progress));
+
+      // ANIMACIÓN DEL TÍTULO
+      // Posición top: Inicia en 75% y termina en 30% (arriba como en tu diseño)
+      const topPos = 75 - (progress * 45); 
+      // Escala: Inicia normal (1) y crece hasta 1.8 veces su tamaño
+      const scaleVal = 1 + (progress * 0.8);
+      
+      brandTitle.style.top = `${topPos}%`;
+      brandTitle.style.transform = `translate(-50%, -50%) scale(${scaleVal})`;
+
+      // ANIMACIÓN DEL SUBTÍTULO
+      // Solo empieza a aparecer cuando el scroll ya va por más de la mitad (progress > 0.6)
+      if (progress > 0.6) {
+        // Normalizamos el progreso del 0.6 al 1.0 para que vaya de 0 a 100% de opacidad
+        const subProgress = (progress - 0.6) / 0.4;
+        brandSubtitle.style.opacity = subProgress;
+        brandSubtitle.style.transform = `translateY(${20 - (subProgress * 20)}px)`;
+      } else {
+        brandSubtitle.style.opacity = 0;
+        brandSubtitle.style.transform = `translateY(20px)`;
+      }
+      
+      tickingHero = false;
+    }
+
+    // Escuchador de scroll optimizado con requestAnimationFrame
+    window.addEventListener('scroll', () => {
+      if (!tickingHero) {
+        window.requestAnimationFrame(updateBrandHero);
+        tickingHero = true;
+      }
+    }, { passive: true });
+  }
+
+  /* ========================================================
+     11. REPRODUCCIÓN INTELIGENTE DE VIDEOS (Solo en pantalla)
+     ======================================================== */
+  const stackedVideos = document.querySelectorAll('.stacked-video');
+
+  if (stackedVideos.length > 0) {
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const video = entry.target;
+        
+        if (entry.isIntersecting) {
+          // Si al menos el 25% del video entra en la pantalla, dale play
+          video.play().catch(err => console.warn("Autoplay bloqueado:", err));
+        } else {
+          // Si sale de la pantalla, páusalo para ahorrar recursos
+          video.pause();
+        }
+      });
+    }, {
+      // threshold: 0.25 significa que la acción se dispara cuando el 25% 
+      // del video es visible en el viewport
+      threshold: 0.25 
+    });
+
+    stackedVideos.forEach(video => {
+      videoObserver.observe(video);
+    });
+  }
+
+  /* ========================================================
+     12. REPRODUCCIÓN INTELIGENTE DE REELS (CARRUSELES)
+     ======================================================== */
+  const reelVideos = document.querySelectorAll('.reel-video');
+
+  if (reelVideos.length > 0) {
+    const reelObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const video = entry.target;
+        const card = video.closest('.reel-card'); // Buscamos la tarjeta padre
+        
+        if (entry.isIntersecting) {
+          // Si el reel está visible en pantalla, arranca
+          video.play().then(() => {
+            if (card) card.classList.add('is-playing'); // Cambia el ícono a Pausa
+          }).catch(err => console.warn("Autoplay de reel bloqueado:", err));
+        } else {
+          // Si el reel sale de la pantalla (ya sea haciendo scroll o moviendo el carrusel)
+          video.pause();
+          if (card) card.classList.remove('is-playing'); // Regresa el ícono a Play
+        }
+      });
+    }, {
+      // Usamos 0.5 para que empiece a reproducirse cuando la mitad del reel ya se vea
+      threshold: 0.5 
+    });
+
+    reelVideos.forEach(video => {
+      reelObserver.observe(video);
+    });
+  }
