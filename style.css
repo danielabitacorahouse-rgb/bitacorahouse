@@ -2642,3 +2642,201 @@ body {
   opacity: 0;
   visibility: hidden;
 }
+
+
+/* =========================================
+   BANNER: MEET OUR EXPERTS (VIDEOS Y FONDO BLANCO)
+   ========================================= */
+.experts-section {
+  position: relative;
+  width: 100%;
+  height: 90vh; 
+  min-height: 850px; 
+  max-width: 100%;
+  margin: 0;
+  background-color: #ffffff; 
+  border-radius: 0; 
+  overflow: hidden;
+}
+
+.experts-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.experts-title-wrapper {
+  position: absolute;
+  top: 38%; 
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 10;
+}
+
+.experts-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  color: #000000; 
+  margin: 0;
+  line-height: 1.1;
+  font-weight: 400; /* Regular, no bold */
+}
+
+.text-red {
+  color: var(--color-wine); 
+}
+
+.center-tags-wrapper {
+  position: absolute;
+  top: 52%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 11;
+}
+
+.center-tags {
+  display: flex;
+  gap: 16px;
+}
+
+/* Envoltorios Flotantes */
+.floating-item {
+  position: absolute;
+  z-index: 5;
+  filter: drop-shadow(0 15px 30px rgba(0,0,0,0.15));
+}
+
+/* CRÍTICO: Esto hace que el scroll-reveal interno llene la caja cuadrada sin achatarse */
+.floating-item .scroll-reveal {
+  width: 100%;
+  height: 100%;
+  display: flex; 
+}
+
+/* Estilo para los videos (o imágenes si quieres mezclar) */
+.f-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px; 
+}
+
+/* Etiquetas (Tags) */
+.f-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 400; /* Regular, no bold */
+  white-space: nowrap;
+}
+
+.tag-wine { background-color: var(--color-wine); color: #ffffff; }
+.tag-dark { background-color: #111111; color: #ffffff; }
+.tag-light { background-color: #f0f0f0; color: #111111; }
+.tag-glass { 
+  background: rgba(0, 0, 0, 0.04); 
+  backdrop-filter: blur(12px); 
+  -webkit-backdrop-filter: blur(12px); 
+  border: 1px solid rgba(0, 0, 0, 0.1); 
+  color: #111111; 
+}
+
+/* =========================================
+   POSICIONES REDISTRIBUIDAS (Formatos Cuadrados 1:1)
+   ========================================= */
+/* Izquierda */
+.f-pos-1 { top: 12%; left: 5%; } 
+.f-pos-2 { top: 8%; left: 28%; width: 150px; height: 150px; } 
+.f-pos-3 { bottom: 12%; left: 6%; width: 180px; height: 180px; } 
+.f-pos-4 { bottom: 32%; left: 24%; } 
+.f-pos-5 { bottom: 8%; left: 32%; width: 130px; height: 130px; } 
+
+/* Derecha */
+.f-pos-6 { top: 15%; right: 35%; } 
+.f-pos-7 { top: 10%; right: 12%; width: 160px; height: 160px; } 
+.f-pos-8 { top: 40%; right: 5%; width: 140px; height: 140px; } 
+.f-pos-9 { bottom: 28%; right: 25%; } 
+.f-pos-10 { bottom: 10%; right: 10%; width: 170px; height: 170px; } 
+
+/* Responsivo */
+@media (max-width: 1024px) {
+  .experts-section { height: auto; min-height: 700px; }
+  .floating-item { transform: scale(0.8); }
+  .f-pos-8 { display: none; } /* Ocultamos uno extra lateral para que respire */
+  .f-pos-4 { bottom: 20%; left: 15%; }
+  .f-pos-9 { bottom: 20%; right: 15%; }
+}
+
+@media (max-width: 600px) {
+  .experts-section { min-height: 600px; }
+  .f-pos-2, .f-pos-5, .f-pos-7, .f-pos-10 { display: none; } /* Limpieza visual en móviles */
+  .center-tags { flex-direction: column; align-items: center; }
+  .experts-title-wrapper { top: 30%; }
+  .center-tags-wrapper { top: 52%; }
+  .floating-item { transform: scale(0.7); }
+}
+
+/* =========================================
+   RESPONSIVO CORREGIDO (Muestra todos los elementos)
+   ========================================= */
+
+/* Laptops pequeñas y Tablets (hasta 1024px) */
+@media (max-width: 1024px) {
+  .experts-section { min-height: 800px; }
+  .experts-title-wrapper { top: 38%; }
+  .center-tags-wrapper { top: 50%; }
+  
+  /* Aseguramos que ningún elemento esté oculto */
+  .floating-item { display: block !important; transform: scale(0.85); }
+  
+  /* Reubicamos para que no tapen el texto */
+  .f-pos-4 { bottom: 20%; left: 10%; }
+  .f-pos-9 { bottom: 20%; right: 10%; }
+}
+
+/* Móviles y Teléfonos (hasta 768px) */
+@media (max-width: 768px) {
+  .experts-section { min-height: 700px; }
+  
+  /* Subimos el título y apilamos los botones centrales */
+  .experts-title-wrapper { top: 30%; }
+  .center-tags-wrapper { top: 45%; }
+  .center-tags { flex-direction: column; align-items: center; gap: 12px; }
+  
+  /* Achicamos todos los elementos flotantes (incluyendo los textos) */
+  .floating-item { transform: scale(0.75); }
+
+  /* Textos flotantes ubicados en las 4 esquinas extremas */
+  .f-pos-1 { top: 2%; left: -2%; } 
+  .f-pos-6 { top: 6%; right: -2%; } 
+  .f-pos-4 { bottom: 22%; left: -2%; } 
+  .f-pos-9 { bottom: 26%; right: -2%; } 
+
+  /* Achicamos las 6 imágenes/videos y las distribuimos por toda la pantalla */
+  .f-pos-2 { width: 90px; height: 90px; top: 12%; left: 8%; } /* Arriba Izq */
+  .f-pos-7 { width: 95px; height: 95px; top: 16%; right: 5%; } /* Arriba Der */
+  
+  .f-pos-5 { width: 85px; height: 85px; top: 68%; left: 5%; }  /* Medio Izq */
+  .f-pos-8 { width: 85px; height: 85px; top: 65%; right: 5%; } /* Medio Der */
+  
+  .f-pos-3 { width: 100px; height: 100px; bottom: 6%; left: 12%; } /* Abajo Izq */
+  .f-pos-10 { width: 95px; height: 95px; bottom: 8%; right: 10%; } /* Abajo Der */
+}
+
+/* Teléfonos muy pequeños (hasta 480px) */
+@media (max-width: 480px) {
+  .experts-section { min-height: 650px; }
+  .experts-title { font-size: 2.2rem; } /* Título un poco más pequeño */
+  .experts-title-wrapper { top: 28%; }
+  .center-tags-wrapper { top: 43%; }
+  
+  .floating-item { transform: scale(0.65); } }
