@@ -136,7 +136,7 @@ body {
 }
 
 .nav-link:hover {
-  opacity: 1;
+  color: #7a7a7a;
 }
 
 /* =========================================
@@ -1110,6 +1110,19 @@ body {
   -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
 }
 
+
+.banner-slate {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  min-height: 450px;
+  border-radius: 20px;
+  background-color: #111;
+  overflow: hidden;
+  /* Máscara de transparencia para lograr el difuminado superior e inferior que se ve en la referencia */
+  mask-image: none;
+  -webkit-mask-image: none;
+}
 .project-hero-bg {
   width: 100%;
   height: 100%;
@@ -1148,6 +1161,16 @@ body {
   text-transform: uppercase;
 }
 
+.spray-tan {
+  background-color: #809368; /* Naranja/Óxido de la referencia */
+   color: #ffffff;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  padding: 6px 12px;
+  text-transform: uppercase;
+ 
+}
 .project-logo {
   height: 90px; /* Ajusta esto dependiendo del alto original del PNG */
   width: auto;
@@ -1339,6 +1362,38 @@ body {
 
 .vd-dot.active {
   background-color: #ffffff;
+  transform: scale(1.2);
+}
+
+
+
+
+.vd-carousel-dots2 {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 10;
+}
+
+.vd-dot2 {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(51, 51, 51, 0.4);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.vd-dot2:hover {
+  transform: scale(1.2);
+}
+
+.vd-dot2.active {
+  background-color: #000000;
   transform: scale(1.2);
 }
 
@@ -2066,7 +2121,7 @@ body {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  background-color: #000000; /* Fondo base como en tu imagen */
+  background-color: transparent; /* Fondo base como en tu imagen */
 }
 
 /* Título Principal */
@@ -2206,6 +2261,7 @@ body {
   padding: 0 48px;
   position: relative;
   z-index: 2;
+  background-color: transparent;
 }
 
 .bf-container {
@@ -2213,6 +2269,7 @@ body {
   grid-template-columns: 1fr 1fr;
   gap: 80px;
   align-items: center;
+   background-color: transparent;
 }
 
 /* --- Lado del Texto --- */
@@ -2345,4 +2402,214 @@ body {
   0%, 70%  { opacity: 0; }
   75%, 95% { opacity: 1; }
   100%     { opacity: 0; }
+}
+
+/* ========================================================
+   SECCIÓN CONTACT ME (FONDO NEGRO + DESENFOQUE)
+   ======================================================== */
+.contact-me-section {
+  background-color: transparent;
+  color: #ffffff;
+  padding: 120px 5%;
+  font-family: 'Lora', serif; 
+  /* La clase .scroll-blur-focus del HTML se encarga del desenfoque mediante tu script.js */
+}
+
+.contact-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Título Gigante */
+.contact-huge-title {
+  font-family: 'Marcellus', serif;
+  font-size: clamp(4rem, 15vw, 13rem);
+  font-weight: normal;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  margin-bottom: 60px;
+  margin-left: -5px; /* Compensa el espacio visual de la fuente */
+}
+
+/* Layout de dos columnas */
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 2.5fr;
+  gap: 80px;
+}
+
+/* Columna de Información */
+.contact-info {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.info-block {
+  margin-bottom: 50px;
+}
+
+.info-block p {
+  margin: 0;
+  color: #ffffff;
+}
+
+/* Formulario */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.form-group-row {
+  display: flex;
+  gap: 30px;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form-group label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.hidden-label {
+  visibility: hidden;
+}
+
+/* Inputs de línea (sin recuadro) */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group select {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #666;
+  color: #ffffff;
+  padding: 8px 0;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  appearance: none;
+}
+
+.form-group select {
+  cursor: pointer;
+  /* Ícono de flecha personalizado para el select en modo oscuro */
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23FFFFFF%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.4-12.8z%22%2F%3E%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  background-position: right 5px center;
+  background-size: 12px auto;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-bottom: 1px solid #ffffff;
+}
+
+.form-group input::placeholder {
+  color: #888888;
+}
+
+/* Opciones del select en modo oscuro */
+.form-group select option {
+  background-color: #111111;
+  color: #ffffff;
+}
+
+/* Checkbox circular (Radio style) */
+.form-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: -10px;
+}
+
+.form-checkbox input[type="checkbox"] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #666;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.form-checkbox input[type="checkbox"]:checked {
+  border-width: 5px; /* Crea el punto central blanco al seleccionarse */
+  border-color: #ffffff;
+}
+
+.form-checkbox label {
+  font-size: 0.9rem;
+  color: #cccccc;
+  cursor: pointer;
+}
+
+/* Botón Invertido (Blanco) */
+.submit-btn-inverted {
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  padding: 16px 48px;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 1rem;
+  font-family: inherit;
+  cursor: pointer;
+  align-self: flex-start;
+  margin-top: 10px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.submit-btn-inverted:hover {
+  background-color: #e0e0e0;
+  transform: scale(1.05);
+}
+
+/* Responsive para Móviles */
+@media (max-width: 768px) {
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  .form-group-row {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .w-50 {
+    width: 100%;
+  }
+  .contact-me-section {
+    padding: 80px 5%;
+  }
+}
+
+/* ========================================================
+   EFECTO DE ENTRADA (4 SEGUNDOS) - DEGRADADO A CLARO
+   ======================================================== */
+/* Estado inicial (antes de que el usuario llegue a la sección) */
+.fade-in-4s {
+  opacity: 0;
+  filter: blur(12px); /* Efecto difuminado inicial */
+  transform: translateY(25px); /* Aparece ligeramente desde abajo */
+  
+  /* Aquí definimos que el efecto dure 4 segundos */
+  transition: opacity 3s ease-out, filter 2s ease-out, transform 2s ease-out;
+}
+
+/* Estado final (tu script.js le agrega 'is-visible' automáticamente al hacer scroll) */
+.fade-in-4s.is-visible {
+  opacity: 1;
+  filter: blur(0px); /* Totalmente claro y nítido */
+  transform: translateY(0);
 }
