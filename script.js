@@ -532,3 +532,24 @@ document.addEventListener('DOMContentLoaded', () => {
       reelObserver.observe(video);
     });
   }
+
+
+/* ========================================================
+   CONTROL DEL LOADER (PANTALLA DE CARGA)
+   ======================================================== */
+window.addEventListener('load', () => {
+  const loader = document.getElementById('contenedor-loader');
+  
+  if (loader) {
+    // Retraso opcional: Puedes dejar el setTimeout en 0 si quieres que desaparezca de inmediato
+    // Aquí tiene 500ms para asegurar que la animación se aprecie un momento.
+    setTimeout(() => {
+      loader.classList.add('oculto');
+      
+      // Elimina el elemento del DOM tras la transición para liberar memoria y no interferir con clics
+      setTimeout(() => {
+        loader.remove();
+      }, 15000); // 10000ms coincide con el tiempo de transición (transition: opacity 6s ease) de style.css
+    }, 15000); 
+  }
+});
