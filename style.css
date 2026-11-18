@@ -227,7 +227,7 @@ body {
   width: var(--card-width);
   height: var(--card-height);
   flex-shrink: 0;
-  border-radius: 18px;
+ 
   overflow: hidden;
   background-color: #121212;
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7);
@@ -254,7 +254,7 @@ body {
   background-color: var(--color-wine);
   color: #ffffff;
   padding: 4px 14px;
-  border-radius: 20px;
+ 
   font-family: var(--font-heading);
   font-size: 0.72rem;
   letter-spacing: 0.05em;
@@ -599,9 +599,9 @@ body {
   text-shadow: 0 2px 8px rgba(0,0,0,0.9);
 }
 
-/* =========================================================
-   BRANDS SECTION (GRID ASIMÉTRICO SEGÚN DISEÑO)
-   ========================================================= */
+/* =========================================
+   BRANDS SECTION (3 TARJETAS IGUALES)
+   ========================================= */
 .brands-section {
   position: relative;
   z-index: 1;
@@ -619,16 +619,16 @@ body {
 .brands-main-title {
   font-family: var(--font-heading);
   font-size: clamp(2.4rem, 4vw, 3.2rem);
-  letter-spacing: 0.08em;
   font-weight: 400;
   color: #ffffff;
   text-shadow: 0 4px 18px rgba(0, 0, 0, 0.9);
 }
 
+/* Forzamos 3 columnas idénticas de igual proporción (1fr) */
 .brands-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1.6fr;
-  align-items: end;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
   gap: 36px;
   width: 100%;
 }
@@ -684,10 +684,6 @@ body {
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
 }
 
-.brand-item-featured .brand-name {
-  font-size: 1.45rem;
-}
-
 .brand-arrow {
   font-family: var(--font-heading);
   font-size: 1.25rem;
@@ -698,7 +694,6 @@ body {
 .brand-item:hover .brand-arrow {
   transform: translate(3px, -3px);
 }
-
 /* =========================================================
    MARQUEE EN BUCLE
    ========================================================= */
@@ -2628,7 +2623,7 @@ body {
   justify-content: center;
   align-items: center;
   z-index: 9999999; /* Por encima de todo, incluso el cursor personalizado */
-  transition: opacity 6s ease, visibility 6s;
+  transition: opacity 0.6s ease, visibility 0.6s;
 }
 
 .video-loader {
@@ -2840,3 +2835,597 @@ body {
   .center-tags-wrapper { top: 43%; }
   
   .floating-item { transform: scale(0.65); } }
+
+/* =========================================
+   GRID DE CLIENTES (VERSIÓN HOVER CON IMÁGENES)
+   ========================================= */
+.clients-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  width: 100%;
+  margin-top: 40px;
+}
+
+/* ESTADO NORMAL */
+.client-card {
+  position: relative;
+  overflow: hidden; /* Crucial para que la imagen no se salga de las esquinas */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  aspect-ratio: 4 / 5;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 24px;
+  padding: 40px 32px;
+  text-decoration: none;
+  background-color: transparent;
+  transition: border-color 0.4s ease, transform 0.4s ease;
+}
+
+/* Desfase de la tarjeta del medio */
+.client-card:nth-child(2) {
+  transform: translateY(60px);
+}
+
+/* CAPA DE IMAGEN DE FONDO (Oculta por defecto) */
+.c-card-hover-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  z-index: 0;
+  transition: opacity 0.5s ease, transform 0.8s ease;
+}
+
+/* ESTADO HOVER DE LA TARJETA */
+.client-card:hover {
+  border-color: transparent !important; /* Desaparece el borde para lucir la foto */
+  transform: translateY(-5px); /* Ligerísima elevación (opcional) */
+}
+
+/* Mantiene el desfase de la del medio al hacer hover */
+.client-card:nth-child(2):hover {
+  transform: translateY(55px);
+}
+
+/* Muestra la imagen de fondo y hace un zoom sutil */
+.client-card:hover .c-card-hover-bg {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* TEXTOS POR ENCIMA DE LA IMAGEN DE FONDO */
+.c-card-top, .c-card-bottom {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+/* BADGE (ETIQUETA SUPERIOR) */
+.c-card-badge {
+  display: inline-block;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 30px;
+  padding: 6px 20px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: #cccccc;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Badge en Hover: Invierte colores como en la foto */
+.client-card:hover .c-card-badge {
+  background-color: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+}
+
+/* CONTENEDOR INFERIOR */
+.c-card-bottom {
+  min-height: 80px; /* Asegura espacio para cuando el logo cargue */
+  display: flex;
+  align-items: flex-end;
+}
+
+/* Textos Normales (Punto + Nombre) */
+.c-card-normal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  transition: opacity 0.3s ease;
+}
+
+.c-card-dot {
+  width: 14px;
+  height: 14px;
+  background-color: #8b0000;
+  border-radius: 50%;
+}
+
+.c-card-name {
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 2vw, 2.2rem);
+  font-weight: 400;
+  color: #ffffff;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* LOGO DE LA MARCA EN HOVER (Oculto por defecto) */
+.c-card-hover-logo {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  max-width: 90%;
+  max-height: 60px; /* Sube o baja este valor si tus logos son más altos */
+  object-fit: contain;
+  object-position: left bottom;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease 0.1s, transform 0.4s ease 0.1s;
+}
+
+/* ANIMACIÓN: INTERCAMBIO INFERIOR AL HACER HOVER */
+.client-card:hover .c-card-normal-content {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.client-card:hover .c-card-hover-logo {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- RESPONSIVIDAD --- */
+@media (max-width: 1024px) {
+  .clients-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .client-card:nth-child(2) {
+    transform: translateY(0);
+  }
+  .client-card:nth-child(2):hover {
+    transform: translateY(-5px);
+  }
+}
+
+@media (max-width: 768px) {
+  .clients-cards-grid {
+    grid-template-columns: 1fr;
+  }
+  .client-card {
+    aspect-ratio: auto;
+    min-height: 320px;
+    padding: 32px 24px;
+  }
+}
+
+
+/* =========================================
+   OUR PROCESS: STACKING CARDS (REGULAR FONT + NEGRO/ROJO)
+   ========================================= */
+.process-section {
+  width: 100%;
+  padding: 60px 48px 120px;
+  background-color: transparent;
+  position: relative;
+  z-index: 2;
+}
+
+.process-cards-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Tarjeta apilable */
+.process-card {
+  position: sticky;
+  top: 12vh; 
+  height: 75vh; 
+  min-height: 520px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 -20px 50px rgba(0, 0, 0, 0.352); 
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 60vh; 
+  overflow: hidden;
+  will-change: transform;
+  padding-left: 8%;
+}
+
+.process-card:last-child {
+  margin-bottom: 0;
+}
+
+/* CONTENIDO CENTRAL (TEXTO A LA IZQUIERDA) */
+.pc-content {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 10;
+  padding: 30px 0;
+  max-width: 350px;
+}
+
+.pc-logo {
+  width: 38px;
+  height: auto;
+  margin-bottom: 16px;
+  object-fit: contain;
+}
+
+.pc-subtitle {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: #555555;
+  margin-bottom: 10px;
+}
+
+.pc-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.2vw, 2.8rem);
+  color: #111111; /* Color negro base para la primera palabra */
+  font-weight: 400; /* Forzamos explícitamente el estilo regular */
+  line-height: 1.15;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+/* Color rojo para la segunda palabra de los títulos */
+.pc-title .text-wine {
+  color: var(--color-wine);
+  font-weight: 400; /* También regular */
+}
+
+.pc-desc {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: #444444;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.pc-btn {
+  background-color: var(--color-wine); 
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  padding: 10px 32px;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.pc-btn:hover {
+  background-color: #000000;
+  transform: translateY(-3px);
+}
+
+/* VIDEOS A LA DERECHA */
+.pc-video {
+  position: absolute;
+  width: 210px;  
+  height: 280px; 
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.116);
+}
+
+.pc-vid-top {
+  top: 12%;
+  right: 12%;
+}
+
+.pc-vid-bottom {
+  bottom: 10%;
+  right: 28%;
+}
+
+.pc-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* =========================================
+   RESPONSIVIDAD (MÓVILES) - SOLO UN VIDEO
+   ========================================= */
+@media (max-width: 768px) {
+  .process-section {
+    padding: 40px 16px;
+  }
+  
+  .process-card {
+    height: auto; 
+    min-height: 480px;
+    margin-bottom: 40vh;
+    padding: 30px 20px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+  }
+
+  .pc-content {
+    align-items: center;
+    text-align: center;
+    max-width: 100%;
+    padding: 0;
+    z-index: 10;
+    margin-bottom: 20px;
+  }
+
+  /* Ocultamos el segundo video en dispositivos móviles */
+  .pc-vid-bottom {
+    display: none !important;
+  }
+
+  /* Dejamos solo un video centrado y con un tamaño ideal para celulares */
+  .pc-video.pc-vid-top {
+    display: block !important;
+    position: relative !important;
+    width: 180px;  
+    height: 240px; 
+    opacity: 0.95;
+    z-index: 5;
+    margin: 10px auto 0;
+    top: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+  }
+}
+/* =========================================
+   GALERÍA DE BRANDING (FONDO BLANCO Y LOGO PNG)
+   ========================================= */
+/* =========================================
+   GALERÍA DE BRANDING (FONDO BLANCO Y LOGO PNG)
+   ========================================= */
+.branding-gallery-section {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto 160px;
+  padding: 60px 48px;
+  background-color: #ffffff;
+
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+
+/* Encabezado */
+.bg-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.bg-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 4vw, 3.8rem);
+  font-weight: 400;
+  color: #111111 !important;
+  letter-spacing: 0.04em;
+}
+
+.bg-header-right {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.bg-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.bg-dot {
+  width: 8px;
+  height: 8px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.bg-dot.active {
+  background-color: #111111;
+}
+
+.bg-year {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: #111111 !important;
+  letter-spacing: 0.05em;
+}
+
+/* Cuerpo del banner */
+.bg-body-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  min-height: 480px;
+  background-color: #ffffff;
+}
+
+/* Logo PNG de fondo con opacidad */
+.bg-watermark-wrapper {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+  width: 45vw;
+  max-width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bg-watermark-png {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  opacity: 0.08; /* Opacidad sutil sobre el fondo blanco */
+}
+
+/* Viewport y pista de la galería de 5 fotos */
+.bg-gallery-viewport {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+}
+
+.bg-gallery-viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.bg-gallery-track {
+  display: flex;
+  gap: 30px;
+  width: max-content;
+  padding-left: 35%; /* Deja espacio para lucir el logo de fondo */
+}
+
+/* Tarjeta individual de foto */
+.bg-gallery-card {
+  width: 380px;
+  aspect-ratio: 1 / 1;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: #1a1a1a;
+  flex-shrink: 0;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.bg-gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bg-gallery-card:hover .bg-gallery-img {
+  transform: scale(1.04);
+}
+
+/* Botón de Regreso (Aparece al hacer scroll a la derecha) */
+.bg-prev-btn {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%) scale(0.9);
+  z-index: 10;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  color: #111111;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.bg-prev-btn svg {
+  width: 22px;
+  height: 22px;
+}
+
+.bg-prev-btn.is-visible {
+  display: flex !important;
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+}
+
+.bg-prev-btn:hover {
+  background: #ffffff;
+  transform: translateY(-50%) scale(1.08);
+}
+
+/* Botón flotante derecho (Siguiente) */
+.bg-next-btn {
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  color: #111111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.bg-next-btn svg {
+  width: 22px;
+  height: 22px;
+}
+
+.bg-next-btn:hover {
+  background: rgba(0, 0, 0, 0.15);
+  transform: translateY(-50%) scale(1.08);
+}
+
+/* Línea inferior divisoria */
+.bg-footer-line {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.15) !important;
+  margin-top: 50px;
+}
+
+/* Responsividad para móviles */
+@media (max-width: 900px) {
+  .branding-gallery-section {
+    padding: 40px 20px;
+  }
+  .bg-gallery-track {
+    padding-left: 0;
+  }
+  .bg-watermark-wrapper {
+    display: none;
+  }
+  .bg-gallery-card {
+    width: 280px;
+  }
+  .bg-next-btn, .bg-prev-btn {
+    display: none;
+  }
+}
