@@ -4,135 +4,229 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Branding</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Marcellus&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Brand In A Box - Built For Impact</title>
-  
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Marcellus&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+
   <!-- INICIO DEL LOADER -->
   <div id="contenedor-loader">
-    <!-- Reemplaza la ruta por la de tu archivo mp4 -->
     <video class="video-loader" autoplay loop muted playsinline>
       <source src="1116.mp4" type="video/mp4">
     </video>
   </div>
   <!-- FIN DEL LOADER -->
-<!-- Video de Fondo Nativo con Inercia por Scroll -->
-<img id="bgVideo" src="logofondo.gif" alt="Fondo animado">  <div class="content-wrapper">
 
-  <!-- Cursor Personalizado -->
-  <div class="custom-cursor" id="customCursor">
-    <!-- Reemplazamos el SVG de la flecha por el logo -->
-    <img src="BHLOGO.png" alt="Cursor" class="cursor-logo">
-  </div>
-  <!-- Cursor Personalizado -->
-  <div class="custom-cursor" id="customCursor">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-      <line x1="7" y1="17" x2="17" y2="7"></line>
-      <polyline points="7 7 17 7 17 17"></polyline>
-    </svg>
-  </div>
+  <!-- Video de Fondo Nativo con Inercia por Scroll -->
+  <img id="bgVideo" src="logofondo.gif" alt="Fondo animado">  
+  <div class="content-wrapper">
 
-  <!-- NAVEGACIÓN -->
-  <header class="navbar">
-    <a href="webs.html" class="brand-logo" aria-label="Home">
-      <img src="BHLOGO.png" alt="Símbolo de marca" class="brand-logo-img">
-    </a>
-    <nav class="nav-links">
-      <a href="webs.html" class="nav-link">Home</a>
-      <a href="Services.html" class="nav-link">Social Media</a>
-      <a href="Brand.html" class="nav-link">Branding</a>
-      <a href="Contact.html" class="nav-link">Contact</a>
-    </nav>
-  </header>
-
-  <!-- BANNER 1: BRAND IN A BOX ANIMADO -->
-  <!-- Le damos 200vh de altura para tener espacio para hacer scroll -->
-  <section class="brands-hero-container" id="brandsHeroContainer">
-    
-    <!-- El contenedor sticky se queda fijo en pantalla mientras bajamos -->
-    <div class="brands-sticky-wrapper">
-      
-      <!-- Si quieres poner una imagen de fondo después, puedes agregarla aquí -->
-      <!-- <img src="tu-imagen-fondo.jpg" class="brands-bg-image"> -->
-
-      <h1 class="bh-title" id="bhTitle">BRAND IN A BOX</h1>
-      <p class="bh-subtitle" id="bhSubtitle">creatively playful<br>commercially powerful.</p>
+    <!-- Cursor Personalizado -->
+    <div class="custom-cursor" id="customCursor">
+      <img src="BHLOGO.png" alt="Cursor" class="cursor-logo">
     </div>
 
-  </section>
+    <!-- NAVEGACIÓN -->
+    <header class="navbar">
+      <a href="webs.html" class="brand-logo" aria-label="Home">
+        <img src="BHLOGO.png" alt="Símbolo de marca" class="brand-logo-img">
+      </a>
+      <nav class="nav-links">
+        <a href="webs.html" class="nav-link">Home</a>
+        <a href="Services.html" class="nav-link">Social Media</a>
+        <a href="Brand.html" class="nav-link">Branding</a>
+        <a href="Contact.html" class="nav-link">Contact</a>
+      </nav>
+    </header>
 
-
-  <!-- BANNER 2: VIDEOS APILADOS -->
-  <section class="brands-video-stack" id="brandsVideoStack">
-     <!-- Video 2 -->
-    <article class="video-stack-wrapper scroll-blur-focus" id="Bitacora">
-      <!-- Reemplaza el src con la URL de tu segundo video -->
-      <video class="stacked-video"  loop muted playsinline src="ani3.mp4"></video>
-    </article>
-    <!-- Video 1 -->
-    <article class="video-stack-wrapper scroll-blur-focus" id="Spaceset">
-      <!-- Reemplaza el src con la URL de tu primer video -->
-      <video class="stacked-video"  loop muted playsinline src="ani2.mp4"></video>
-    </article>
-
-    <!-- Video 2 -->
-    <article class="video-stack-wrapper scroll-blur-focus" id="Harianna">
-      <!-- Reemplaza el src con la URL de tu segundo video -->
-      <video class="stacked-video"  loop muted playsinline src="ani1.mp4"></video>
-    </article>
-
-       
-
-  </section>
-
-  <!-- BANNER 3: WE CREATE BRANDING -->
-  <section class="branding-feature-section scroll-blur-focus" id="brandingFeature">
-    <div class="bf-container">
-      
-      <!-- Columna Izquierda: Texto -->
-      <div class="bf-content slide-in-left">
-        <span class="bf-tagline">creatively playful commercially powerful.</span>
-        
-        <h2 class="bf-title">
-          WE CREATE<br>
-          BRANDING THAT<br>
-          LEAVES A MARK.
-        </h2>
-        
-        <p class="bf-desc">
-          Connecting consumers to brands through content creators and commerce. Connecting consumers to brands through content creators and commerce.
-        </p>
-        
-        <!-- Botón con efecto cristal -->
-        <a href="#contact" class="bf-btn glass-btn-text">Connecting consumers</a>
+    <!-- BANNER 1: BRAND IN A BOX ANIMADO -->
+    <section class="brands-hero-container" id="brandsHeroContainer">
+      <div class="brands-sticky-wrapper">
+        <h1 class="bh-title" id="bhTitle">BRAND IN A BOX</h1>
+        <p class="bh-subtitle" id="bhSubtitle">creatively playful<br>commercially powerful.</p>
       </div>
-      
-      <!-- Columna Derecha: Imagen con Cristal y Hover Animado -->
-      <div class="bf-image-wrapper slide-in-right">
-        <!-- Imagen 1 (Por defecto) -->
-        <img src="15.png" alt="Brand 1" class="bf-img bf-img-1">
-        
-        <!-- Imágenes ocultas que aparecerán al hacer hover (Reemplaza los src con las tuyas) -->
-        <img src="12.png" alt="Brand 2" class="bf-img bf-img-2">
-        <img src="13.png" alt="Brand 3" class="bf-img bf-img-3">
-        <img src="14.png" alt="Brand 4" class="bf-img bf-img-4">
+    </section>
+
+    <!-- BANNER 2: VIDEO 1 -->
+    <section class="brands-video-stack" id="brandsVideoStack1">
+      <article class="video-stack-wrapper scroll-blur-focus" id="Spaceset">
+        <video class="stacked-video" loop muted playsinline src="ani2.mp4"></video>
+      </article>
+    </section>
+
+    <!-- GALERÍA INTERACTIVA 1 (Space Set) -->
+    <section class="branding-gallery-section scroll-blur-focus" id="brandingGallery1">
+      <div class="bg-header">
+        <h2 class="bg-title">GALLERY</h2>
+        <div class="bg-header-right">
+          <div class="bg-dots">
+            <span class="bg-dot active"></span>
+            <span class="bg-dot"></span>
+            <span class="bg-dot"></span>
+          </div>
+          <span class="bg-year">2026</span>
+        </div>
       </div>
 
-    </div>
-  </section>
+      <div class="bg-body-wrapper">
+        <div class="bg-watermark-wrapper">
+          <img src="spacelogo.png" alt="Logo de fondo" class="bg-watermark-png">
+        </div>
+
+        <button class="bg-prev-btn" id="brandGalleryPrev1" aria-label="Foto anterior">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+
+        <div class="bg-gallery-viewport">
+          <div class="bg-gallery-track" id="brandGalleryTrack1">
+            <div class="bg-gallery-card"><img src="s1.png" alt="Gallery Photo 1" class="bg-gallery-img"></div>
+            <div class="bg-gallery-card"><img src="s2.png" alt="Gallery Photo 2" class="bg-gallery-img"></div>
+            <div class="bg-gallery-card"><img src="s3.png" alt="Gallery Photo 3" class="bg-gallery-img"></div>
+            <div class="bg-gallery-card"><img src="s4.png" alt="Gallery Photo 4" class="bg-gallery-img"></div>
+            <div class="bg-gallery-card"><img src="s5.png" alt="Gallery Photo 5" class="bg-gallery-img"></div>
+          </div>
+        </div>
+
+        <button class="bg-next-btn" id="brandGalleryNext1" aria-label="Siguiente foto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+      <div class="bg-footer-line"></div>
+    </section>
+
+    <!-- BANNER 2: VIDEO 2 -->
+    <section class="brands-video-stack" id="brandsVideoStack2">
+      <article class="video-stack-wrapper scroll-blur-focus" id="Bitacora">
+        <video class="stacked-video" loop muted playsinline src="ani3.mp4"></video>
+      </article>
+    </section>
+
+    <!-- GALERÍA INTERACTIVA 2 (Bitacora) -->
+    <section class="branding-gallery-section scroll-blur-focus" id="brandingGallery2">
+      <div class="bg-header">
+        <h2 class="bg-title">GALLERY</h2>
+        <div class="bg-header-right">
+          <div class="bg-dots">
+            <span class="bg-dot active"></span>
+            <span class="bg-dot"></span>
+            <span class="bg-dot"></span>
+          </div>
+          <span class="bg-year">2026</span>
+        </div>
+      </div>
+
+      <div class="bg-body-wrapper">
+        <div class="bg-watermark-wrapper">
+          <img src="bitacoralogo.png" alt="Logo de fondo" class="bg-watermark-png">
+        </div>
+
+        <button class="bg-prev-btn" id="brandGalleryPrev2" aria-label="Foto anterior">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+
+        <div class="bg-gallery-viewport">
+          <div class="bg-gallery-track" id="brandGalleryTrack2">
+            <div class="bg-gallery-card"><img src="bi1.png" alt="Gallery Photo 1" class="bg-gallery-img"></div>
+            <div class="bg-gallery-card"><img src="bi2.png" alt="Gallery Photo 2" class="bg-gallery-img"></div>
+            <div class="bg-gallery-card"><img src="bi3.png" alt="Gallery Photo 3" class="bg-gallery-img"></div>
+            <div class="bg-gallery-card"><img src="bi4.png" alt="Gallery Photo 4" class="bg-gallery-img"></div>
+            <div class="bg-gallery-card"><img src="bi5.png" alt="Gallery Photo 5" class="bg-gallery-img"></div>
+          </div>
+        </div>
+
+        <button class="bg-next-btn" id="brandGalleryNext2" aria-label="Siguiente foto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+      <div class="bg-footer-line"></div>
+    </section>
+
+    <!-- BANNER 2: VIDEO 3 -->
+    <section class="brands-video-stack" id="brandsVideoStack3">
+      <article class="video-stack-wrapper scroll-blur-focus" id="Harianna">
+        <video class="stacked-video" loop muted playsinline src="ani1.mp4"></video>
+      </article>
+    </section>
+
+    <!-- GALERÍA INTERACTIVA 3 (Harianna) -->
+    <section class="branding-gallery-section scroll-blur-focus" id="brandingGallery3">
+      <div class="bg-header">
+        <h2 class="bg-title">GALLERY</h2>
+        <div class="bg-header-right">
+          <div class="bg-dots">
+            <span class="bg-dot active"></span>
+            <span class="bg-dot"></span>
+            <span class="bg-dot"></span>
+          </div>
+          <span class="bg-year">2026</span>
+        </div>
+      </div>
+
+      <div class="bg-body-wrapper">
+        <div class="bg-watermark-wrapper">
+          <img src="hariannalogo.png" alt="Logo de fondo" class="bg-watermark-png">
+        </div>
+
+        <button class="bg-prev-btn" id="brandGalleryPrev3" aria-label="Foto anterior">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+
+        <div class="bg-gallery-viewport">
+          <div class="bg-gallery-track" id="brandGalleryTrack3">
+            <div class="bg-gallery-card"><img src="ha1.png" alt="Gallery Photo 1" class="bg-gallery-img"></div>
+            <div class="bg-gallery-card"><img src="ha2.png" alt="Gallery Photo 2" class="bg-gallery-img"></div>
+            <div class="bg-gallery-card"><img src="ha3.png" alt="Gallery Photo 3" class="bg-gallery-img"></div>
+            <div class="bg-gallery-card"><img src="ha4.png" alt="Gallery Photo 4" class="bg-gallery-img"></div>
+            <div class="bg-gallery-card"><img src="ha5.png" alt="Gallery Photo 5" class="bg-gallery-img"></div>
+          </div>
+        </div>
+
+        <button class="bg-next-btn" id="brandGalleryNext3" aria-label="Siguiente foto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+      <div class="bg-footer-line"></div>
+    </section>
+
+    <!-- BANNER 3: WE CREATE BRANDING -->
+    <section class="branding-feature-section scroll-blur-focus" id="brandingFeature">
+      <div class="bf-container">
+        <div class="bf-content slide-in-left">
+          <span class="bf-tagline">creatively playful commercially powerful.</span>
+          <h2 class="bf-title">
+            WE CREATE<br>
+            BRANDING THAT<br>
+            LEAVES A MARK.
+          </h2>
+          <p class="bf-desc">
+            Connecting consumers to brands through content creators and commerce. Connecting consumers to brands through content creators and commerce.
+          </p>
+          <a href="#contact" class="bf-btn glass-btn-text">Connecting consumers</a>
+        </div>
+        
+        <div class="bf-image-wrapper slide-in-right">
+          <img src="15.png" alt="Brand 1" class="bf-img bf-img-1">
+          <img src="12.png" alt="Brand 2" class="bf-img bf-img-2">
+          <img src="13.png" alt="Brand 3" class="bf-img bf-img-3">
+          <img src="14.png" alt="Brand 4" class="bf-img bf-img-4">
+        </div>
+      </div>
+    </section>
 
     <!-- BANNER: FOOTER ROJO VINO -->
     <footer class="footer-banner" id="contact">
@@ -175,8 +269,9 @@
         </nav>
       </div>
     </footer>
+
+  </div>
+
   <script src="script.js"></script>
-</body>
-</html>
 </body>
 </html>
