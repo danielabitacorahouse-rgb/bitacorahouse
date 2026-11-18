@@ -68,18 +68,33 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ========================================================
      2. Carrusel Continuo + Controles de Video (Play & Mute)
      ======================================================== */
-  let currentOffset = 0;
+ let currentOffset = 0;
   const speed = 0.75;
   let isHovered = false;
 
-  const totalCards = 5;
   const cardWidth = 250;
   const cardGap = 24;
-  const singleLoopWidth = totalCards * (cardWidth + cardGap);
+  let singleLoopWidth = 0;
+
+  if (track) {
+    // 1. Contamos cuántas tarjetas originales hay dinámicamente
+    const originalCards = Array.from(track.children);
+    const totalCards = originalCards.length;
+    singleLoopWidth = totalCards * (cardWidth + cardGap);
+
+    // 2. Duplicamos TODAS las tarjetas originales de forma automática
+    // Esto asegura que nunca haya un espacio negro al final del recorrido
+    originalCards.forEach(card => {
+      const clone = card.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      track.appendChild(clone);
+    });
+  }
 
   function animateCarousel() {
-    if (track && !isHovered) {
+    if (track && !isHovered && singleLoopWidth > 0) {
       currentOffset -= speed;
+      // Reinicia el scroll exacto al final del set original de manera imperceptible
       if (Math.abs(currentOffset) >= singleLoopWidth) {
         currentOffset += singleLoopWidth;
       }
@@ -88,7 +103,6 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(animateCarousel);
   }
   requestAnimationFrame(animateCarousel);
-
   if (track) {
     track.addEventListener('mouseenter', () => isHovered = true);
     track.addEventListener('mouseleave', () => isHovered = false);
@@ -549,7 +563,98 @@ window.addEventListener('load', () => {
       // Elimina el elemento del DOM tras la transición para liberar memoria y no interferir con clics
       setTimeout(() => {
         loader.remove();
-      }, 15000); // 10000ms coincide con el tiempo de transición (transition: opacity 6s ease) de style.css
-    }, 15000); 
+      }, 5000); // 10000ms coincide con el tiempo de transición (transition: opacity 6s ease) de style.css
+    }, 5000); 
+  }
+});
+
+/* ========================================================
+   INTERACCIÓN: BOTÓN SIGUIENTE DE GALERÍA DE BRANDING
+   ======================================================== */
+const brandGalleryNext = document.getElementById('brandGalleryNext');
+const brandGalleryTrack = document.getElementById('brandGalleryTrack');
+
+if (brandGalleryNext && brandGalleryTrack) {
+  brandGalleryNext.addEventListener('click', () => {
+    // Desplaza la galería horizontalmente el equivalente al ancho de una tarjeta + su separación
+    brandGalleryTrack.parentElement.scrollBy({
+      left: 410,
+      behavior: 'smooth'
+    });
+  });
+}
+
+/* ========================================================
+   CONTROL DE GALERÍA DE BRANDING (BOTONES SIGUIENTE Y REGRESO)
+   ======================================================== */
+document.addEventListener('DOMContentLoaded', () => {
+  const brandGalleryPrev = document.getElementById('brandGalleryPrev');
+  const brandGalleryNext = document.getElementById('brandGalleryNext');
+  const brandGalleryTrack = document.getElementById('brandGalleryTrack');
+
+  if (brandGalleryTrack && brandGalleryNext && brandGalleryPrev) {
+    const viewport = brandGalleryTrack.parentElement; // Es el div con overflow que hace scroll
+
+    // Función que revisa si nos hemos movido a la derecha
+    function checkScrollPosition() {
+      if (viewport.scrollLeft > 10) {
+        brandGalleryPrev.classList.add('is-visible');
+      } else {
+        brandGalleryPrev.classList.remove('is-visible');
+      }
+    }
+
+    // Escuchamos el scroll dentro del contenedor de las fotos
+    viewport.addEventListener('scroll', checkScrollPosition, { passive: true });
+
+    // Botón Siguiente
+    brandGalleryNext.addEventListener('click', () => {
+      viewport.scrollBy({
+        left: 410,
+        behavior: 'smooth'
+      });
+    });
+
+    // Botón Regreso
+    brandGalleryPrev.addEventListener('click', () => {
+      viewport.scrollBy({
+        left: -410,
+        behavior: 'smooth'
+      });
+    });
+  }
+});
+
+
+/* ========================================================
+   CONTROL DE MÚLTIPLES GALERÍAS DE BRANDING (1, 2 y 3)
+   ======================================================== */
+document.addEventListener('DOMContentLoaded', () => {
+  for (let i = 1; i <= 3; i++) {
+    const prevBtn = document.getElementById(`brandGalleryPrev${i}`);
+    const nextBtn = document.getElementById(`brandGalleryNext${i}`);
+    const track = document.getElementById(`brandGalleryTrack${i}`);
+
+    if (track && nextBtn && prevBtn) {
+      const viewport = track.parentElement;
+
+      function updatePrevVisibility() {
+        if (viewport.scrollLeft > 10) {
+          prevBtn.classList.add('is-visible');
+        } else {
+          prevBtn.classList.remove('is-visible');
+        }
+      }
+
+      viewport.addEventListener('scroll', updatePrevVisibility, { passive: true });
+
+      nextBtn.addEventListener('click', () => {
+        viewport.scrollBy({ left: 410, behavior: 'smooth' });
+      });
+
+      prevBtn.addEventListener('click', () => {
+        viewport.scrollBy({ left: -410, behavior: 'smooth' });
+      });
+    }
   }
 });
