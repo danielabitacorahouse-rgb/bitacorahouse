@@ -658,3 +658,58 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
+
+
+
+/* ========================================================
+     1. Video de Fondo: Aceleración Dinámica (100% Fluido)
+     ======================================================== */
+  const IDLE_SPEED = 0.9;         // AUMENTADO: Velocidad base cuando el usuario está quieto (antes 0.35)
+  const MAX_SPEED = 4.5;          // AUMENTADO: Límite de velocidad máxima permitida (antes 2.5)
+  const ACCELERATION = 0.45;     // AUMENTADO: Qué tanto se dispara la velocidad al mover la rueda (antes 0.015)
+  
+  let lastScrollY = window.scrollY;
+  let targetRate = IDLE_SPEED;
+  let currentRate = IDLE_SPEED;
+  let scrollTimeout = null;
+
+  if (bgVideo && bgVideo.tagName.toLowerCase() === 'video') {
+    bgVideo.playbackRate = currentRate;
+    bgVideo.play().catch(() => {});
+
+    // Motor que suaviza los cambios de velocidad
+    function speedLoop() {
+      currentRate += (targetRate - currentRate) * 0.1;
+      
+      if (bgVideo.playbackRate !== currentRate) {
+         // Limitamos la velocidad entre el mínimo y el máximo
+         bgVideo.playbackRate = Math.max(IDLE_SPEED, Math.min(currentRate, MAX_SPEED));
+      }
+      requestAnimationFrame(speedLoop);
+    }
+    speedLoop();
+  }
+
+  window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
+    const delta = Math.abs(currentScrollY - lastScrollY); 
+    lastScrollY = currentScrollY;
+
+    // Desenfoque del hero (webs.html)
+    if (typeof heroTextBlock !== 'undefined' && heroTextBlock) {
+      const maxHeroScroll = 420;
+      const heroProgress = Math.min(currentScrollY / maxHeroScroll, 1);
+      heroTextBlock.style.filter = `blur(${(heroProgress * 18).toFixed(1)}px)`;
+      heroTextBlock.style.opacity = (1 - (heroProgress * 0.85)).toFixed(2);
+      heroTextBlock.style.transform = `scale(${(1 - (heroProgress * 0.05)).toFixed(3)})`;
+    }
+
+    // Al hacer scroll, la velocidad objetivo aumenta con la nueva aceleración
+    targetRate = IDLE_SPEED + (delta * ACCELERATION);
+
+    // Cuando te detienes por 100ms, la velocidad vuelve a bajar suavemente a IDLE_SPEED
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+      targetRate = IDLE_SPEED;
+    }, 100); 
+  }, { passive: true });
