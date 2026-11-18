@@ -2128,6 +2128,7 @@ body {
   color: #ffffff;
   margin: 0;
   position: absolute;
+  text-align: center;
   font-weight: 400;
   /* Posición inicial: Abajo y al centro */
   top: 75%; 
@@ -3432,3 +3433,21 @@ body {
   }
 }
 
+/* ========================================================
+   CORRECCIÓN DEFINITIVA: ESPACIO NEGRO EN MÓVIL
+   Corta el desbordamiento SOLO en las secciones animadas 
+   para no dañar el Sticky del resto de la web.
+   ======================================================== */
+.services-hero,
+.services-about,
+.branding-feature-section {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
+/* Prevenir que textos gigantes fuercen el ancho en celulares pequeños */
+.sh-line, .sa-title, .bf-title {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
