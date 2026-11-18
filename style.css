@@ -32,7 +32,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   object-fit: cover;
   z-index: 0;
@@ -46,6 +46,8 @@ body {
   z-index: 1;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  overflow-x: clip; /* La magia para cortar el espacio negro sin dañar el sticky */
 }
 
 /* =========================================
@@ -2616,7 +2618,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   background-color: #000000; /* Fondo negro sólido para el loader */
   display: flex;
@@ -3429,3 +3431,4 @@ body {
     display: none;
   }
 }
+
