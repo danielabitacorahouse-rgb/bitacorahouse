@@ -177,7 +177,7 @@ body {
   font-size: 1.15rem;
   line-height: 1.35;
   color: #ffffff;
-  max-width: 200px;
+  max-width: 300px;
   margin-right: 12px;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
 }
@@ -548,7 +548,7 @@ body {
   font-size: 1.25rem;
   line-height: 1.45;
   color: #f0f0f0;
-  max-width: 380px;
+  max-width: 420px;
   text-shadow: 0 2px 10px rgba(0,0,0,0.9);
 }
 
@@ -882,7 +882,7 @@ body {
   line-height: 1.1;
   letter-spacing: 0.04em;
   color: #ffffff;
-  max-width: 700px;
+  max-width: 900px;
 }
 
 .footer-btn-pill {
@@ -1092,6 +1092,18 @@ body {
   max-width: 1360px;
   margin: 20px auto 0;
   padding: 0 48px;
+
+}
+
+.hero-text-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;
+  transform-origin: center top;
+  will-change: filter, opacity, transform;
 }
 
 .project-hero-image-wrapper {
@@ -1578,7 +1590,7 @@ body {
   width: 100%;
   max-width: 1200px;
   margin: 80px auto 140px;
-  padding: 0 48px;
+  padding: 0 200px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1656,6 +1668,7 @@ body {
     flex-direction: column;
     align-items: flex-start;
     gap: 80px;
+     padding: 0 20px;
   }
 }
 
@@ -2256,7 +2269,7 @@ body {
   width: 100%;
   max-width: 1360px;
   margin: 0 auto 160px;
-  padding: 0 48px;
+  padding: 0 200px;
   position: relative;
   z-index: 2;
   background-color: transparent;
@@ -2332,10 +2345,12 @@ body {
 .bf-image-wrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 5; /* Formato de retrato como en tu diseño */
+  max-width: 420px; /* Ajusta este valor (ej. 380px o 460px) según qué tan pequeño lo quieras */
+  justify-self: center; /* Lo centra dentro de su columna derecha */
+  aspect-ratio: 4 / 5;
   border-radius: 12px;
   overflow: hidden;
-  cursor: none; /* Para usar tu logo personalizado de cursor */
+  cursor: none;
   
   /* Contenedor de cristal sutil */
   background: rgba(255, 255, 255, 0.02);
@@ -2343,7 +2358,6 @@ body {
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(10px);
 }
-
 /* Imágenes absolutas apiladas */
 .bf-img {
   position: absolute;
@@ -2359,6 +2373,23 @@ body {
 /* Estado normal sin hacer hover (solo se ve la primera) */
 .bf-image-wrapper:not(:hover) .bf-img-1 {
   opacity: 1;
+}
+@media (max-width: 900px) {
+  .bf-container {
+    grid-template-columns: 1fr; /* Pasa a una sola columna en móviles */
+    gap: 40px;
+
+  }
+  .bf-image-wrapper {
+    max-width: 100%; /* Ocupa todo el ancho disponible */
+    aspect-ratio: auto; /* Ajusta la altura automáticamente */
+  }
+
+  .branding-feature-section {
+  
+  padding: 0 20px;
+  
+}
 }
 
 /* ==============================================
@@ -2421,7 +2452,7 @@ body {
 /* Título Gigante */
 .contact-huge-title {
   font-family: 'Marcellus', serif;
-  font-size: clamp(4rem, 15vw, 13rem);
+  font-size: clamp(2rem, 13vw, 5.5rem);
   font-weight: normal;
   line-height: 0.9;
   letter-spacing: -0.03em;
@@ -3450,4 +3481,102 @@ body {
 .sh-line, .sa-title, .bf-title {
   word-wrap: break-word;
   overflow-wrap: break-word;
+}
+
+/* =========================================
+   MODAL / REPRODUCTOR EMERGENTE DE REELS
+   ========================================= */
+.reel-card {
+  cursor: pointer;
+}
+
+.video-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999998; /* Por encima de toda la web y el cursor */
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.video-modal-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.video-modal-container {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 90vw;
+  max-height: 88vh;
+  transform: scale(0.92);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.video-modal-overlay.is-open .video-modal-container {
+  transform: scale(1);
+}
+
+.video-modal-player {
+  max-height: 85vh;
+  max-width: 85vw;
+  width: auto;
+  height: auto;
+  border-radius: 12px;
+  background-color: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
+  outline: none;
+}
+
+/* Botón X al costado derecho del video */
+.video-modal-close {
+  position: absolute;
+  top: 0;
+  right: -58px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #ffffff;
+  font-size: 1.5rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+}
+
+.video-modal-close:hover {
+  background-color: var(--color-wine);
+  border-color: #ffffff;
+  transform: scale(1.1) rotate(90deg);
+}
+
+/* En móviles, colocamos la X arriba a la derecha para que no se corte */
+@media (max-width: 768px) {
+  .video-modal-player {
+    max-height: 78vh;
+    max-width: 92vw;
+  }
+
+  .video-modal-close {
+    top: -54px;
+    right: 0;
+  }
 }

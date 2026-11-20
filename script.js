@@ -563,8 +563,8 @@ window.addEventListener('load', () => {
       // Elimina el elemento del DOM tras la transición para liberar memoria y no interferir con clics
       setTimeout(() => {
         loader.remove();
-      }, 5000); // 10000ms coincide con el tiempo de transición (transition: opacity 6s ease) de style.css
-    }, 5000); 
+      }, 2000); // 10000ms coincide con el tiempo de transición (transition: opacity 6s ease) de style.css
+    }, 2000); 
   }
 });
 
@@ -673,7 +673,8 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentRate = IDLE_SPEED;
   let scrollTimeout = null;
 
-  if (bgVideo && bgVideo.tagName.toLowerCase() === 'video') {
+const bgVideoEl = document.getElementById('bgVideo');
+if (bgVideoEl && bgVideoEl.tagName.toLowerCase() === 'video') {
     bgVideo.playbackRate = currentRate;
     bgVideo.play().catch(() => {});
 
@@ -713,3 +714,81 @@ document.addEventListener('DOMContentLoaded', () => {
       targetRate = IDLE_SPEED;
     }, 100); 
   }, { passive: true });
+
+
+
+  /* ========================================================
+   MODAL DE REPRODUCTOR DE VIDEO PARA CARRUSELES
+   ======================================================== */
+document.addEventListener('DOMContentLoaded', () => {
+  // 1. Creamos la estructura del modal dinámicamente en el body
+  const modalOverlay = document.createElement('div');
+  modalOverlay.className = 'video-modal-overlay';
+  modalOverlay.id = 'videoModalOverlay';
+  modalOverlay.innerHTML = `
+    <div class="video-modal-container">
+      <video class="video-modal-player" id="videoModalPlayer" controls playsinline loop></video>
+      <button class="video-modal-close" id="videoModalClose" aria-label="Cerrar video">&times;</button>
+    </div>
+  `;
+  document.body.appendChild(modalOverlay);
+
+  const modalPlayer = document.getElementById('videoModalPlayer');
+  const modalCloseBtn = document.getElementById('videoModalClose');
+
+  function openVideoModal(videoSrc) {
+    if (!videoSrc) return;
+
+    // Pausamos cualquier reel del carrusel para que no se superponga el audio
+    document.querySelectorAll('.reel-video').forEach(v => {
+      v.pause();
+      const card = v.closest('.reel-card');
+      if (card) card.classList.remove('is-playing');
+    });
+
+    modalPlayer.src = videoSrc;
+    modalPlayer.muted = false;
+    modalOverlay.classList.add('is-open');
+    document.body.style.overflow = 'hidden'; // Bloquea el scroll de fondo
+
+    modalPlayer.play().catch(() => {});
+  }
+
+  function closeVideoModal() {
+    modalOverlay.classList.remove('is-open');
+    modalPlayer.pause();
+    modalPlayer.removeAttribute('src');
+    modalPlayer.load();
+    document.body.style.overflow = ''; // Restaura el scroll
+  }
+
+  // 2. Delegación de eventos: funciona tanto en tarjetas originales como en las clonadas del bucle
+  document.addEventListener('click', (e) => {
+    const card = e.target.closest('.reel-card');
+    if (!card) return;
+
+    // Si hizo clic en los botones de control o en el enlace del badge, no abrimos el modal
+    if (e.target.closest('.reel-controls') || e.target.closest('a')) return;
+
+    const video = card.querySelector('.reel-video');
+    if (video) {
+      const src = video.currentSrc || video.getAttribute('src');
+      openVideoModal(src);
+    }
+  });
+
+  // 3. Cerrar con la X, haciendo clic fuera del video o presionando Escape
+  modalCloseBtn.addEventListener('click', closeVideoModal);
+
+  modalOverlay.addEventListener('click', (e) => {
+    if (e.target === modalOverlay) {
+      closeVideoModal();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modalOverlay.classList.contains('is-open')) {
+      closeVideoModal();
+    }
+  });
+});
