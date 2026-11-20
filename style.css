@@ -984,6 +984,22 @@ body {
     flex-wrap: wrap;
     gap: 24px;
   }
+
+  .services-title {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--color-wine);
+}
+
+.services-subtitle {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  line-height: 1.35;
+  color: #2b2b2b;
+  text-align: right;
+}
 }
 
 @media (max-width: 900px) {
