@@ -457,7 +457,8 @@ document.addEventListener('DOMContentLoaded', () => {
       // Posición top: Inicia en 75% y termina en 30% (arriba como en tu diseño)
       const topPos = 75 - (progress * 45); 
       // Escala: Inicia normal (1) y crece hasta 1.8 veces su tamaño
-      const scaleVal = 1 + (progress * 0.8);
+     const maxGrow = window.innerWidth <= 900 ? 0.25 : 0.8;
+const scaleVal = 1 + (progress * maxGrow);
       
       brandTitle.style.top = `${topPos}%`;
       brandTitle.style.transform = `translate(-50%, -50%) scale(${scaleVal})`;
@@ -792,3 +793,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+const isMobile = window.innerWidth <= 900;
+
+// 1. Solo ejecuta el cursor magnético en escritorio
+if (!isMobile && cursor) {
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+
+  function renderCursor() {
+    cursorX += (mouseX - cursorX) * 0.18;
+    cursorY += (mouseY - cursorY) * 0.18;
+    cursor.style.left = `${cursorX}px`;
+    cursor.style.top = `${cursorY}px`;
+    requestAnimationFrame(renderCursor);
+  }
+  requestAnimationFrame(renderCursor);
+}

@@ -3596,6 +3596,9 @@ body {
     top: -54px;
     right: 0;
   }
+
+  
+
 }
 
 
@@ -3625,5 +3628,481 @@ body {
     font-size: 0.95rem;
     margin: 18px auto 0;
     text-align: center;
+  }
+}
+
+
+/* =========================================================
+   MEJORAS DE TIPOGRAFÍA RESPONSIVE (PEGAR AL FINAL DE style.css)
+   ========================================================= */
+
+/* Equilibra los saltos de línea en títulos para evitar palabras sueltas */
+/* =========================================================
+   MEJORAS DE TIPOGRAFÍA RESPONSIVE (VERSIÓN COMPACTA)
+   ========================================================= */
+
+h1, h2, h3, .headline-part, .sh-line, .footer-title {
+  text-wrap: balance;
+}
+
+@media (max-width: 900px) {
+  /* --- NAVEGACIÓN --- */
+  .nav-link {
+    font-size: 0.88rem;
+  }
+
+  /* --- HOME: HERO --- */
+  .headline-part {
+    font-size: clamp(1.65rem, 7.2vw, 2.2rem);
+    line-height: 1.05;
+  }
+
+  .tagline {
+    font-size: 0.88rem;
+  }
+
+  /* --- HOME: SERVICIOS (ACORDEÓN) --- */
+  .services-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+
+  .services-title {
+    font-size: clamp(1.5rem, 6vw, 1.95rem);
+  }
+
+  .services-subtitle {
+    font-size: 0.88rem;
+    text-align: left;
+    line-height: 1.45;
+  }
+
+  .accordion-trigger {
+    grid-template-columns: 46px 1fr;
+    gap: 10px;
+  }
+
+  .item-number {
+    font-size: 1.05rem;
+  }
+
+  .item-title {
+    font-size: clamp(1.1rem, 4.4vw, 1.4rem);
+    line-height: 1.2;
+  }
+
+  .item-description {
+    font-size: 0.88rem;
+    line-height: 1.55;
+  }
+
+  .btn-pill {
+    font-size: 0.75rem;
+    padding: 7px 24px;
+  }
+
+  /* --- HOME: STATS --- */
+  .stats-section {
+    padding: 60px 24px;
+  }
+
+  .stat-intro-text {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .stat-with-accent {
+    padding-left: 16px;
+  }
+
+  .stat-title {
+    font-size: clamp(1.3rem, 5.2vw, 1.8rem);
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+
+  .stat-number {
+    font-size: clamp(2rem, 8.5vw, 2.9rem);
+  }
+
+  .stat-label {
+    font-size: clamp(1.3rem, 5.2vw, 1.8rem);
+  }
+
+  .stat-sub {
+    font-size: 0.88rem;
+  }
+
+  /* --- HOME: BRANDS, PROCESS Y REVIEWS --- */
+  .brands-section {
+    padding: 60px 24px 70px;
+  }
+
+  .brands-header {
+    margin-bottom: 34px;
+  }
+
+  .brands-main-title {
+    font-size: clamp(1.6rem, 6vw, 2.1rem);
+  }
+
+  .brand-name {
+    font-size: 0.98rem;
+  }
+
+  .pc-title {
+    font-size: clamp(1.4rem, 5.8vw, 1.85rem);
+  }
+
+  .pc-desc {
+    font-size: 0.88rem;
+    line-height: 1.55;
+  }
+
+  .pc-btn {
+    font-size: 0.8rem;
+    padding: 9px 26px;
+  }
+
+  .marquee-text {
+    font-size: clamp(1.85rem, 7.5vw, 2.8rem);
+  }
+
+  .review-quote {
+    font-size: 0.98rem;
+    line-height: 1.5;
+  }
+
+  .review-author {
+    font-size: 0.88rem;
+  }
+
+  /* --- SERVICES.HTML --- */
+  .services-hero {
+    padding: 50px 24px 60px;
+  }
+
+  .sh-line {
+    font-size: clamp(1.75rem, 8vw, 2.6rem);
+    line-height: 1.1;
+  }
+
+  .s-hero-desc p,
+  .sa-desc,
+  .s-bento-desc,
+  .ct-desc p {
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  .sa-title,
+  .s-bento-title {
+    font-size: clamp(1.7rem, 7vw, 2.4rem);
+    margin-bottom: 14px;
+  }
+
+  .sa-num {
+    font-size: clamp(2rem, 8vw, 2.7rem);
+  }
+
+  .sa-lbl {
+    font-size: clamp(1.35rem, 5.5vw, 1.85rem);
+  }
+
+  .s-bento-header {
+    margin-bottom: 32px;
+  }
+
+  .s-card-title {
+    font-size: 1.1rem;
+    line-height: 1.25;
+  }
+
+  .s-card-desc {
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+
+  .ct-heading h2 {
+    font-size: clamp(1.55rem, 6.5vw, 2.15rem);
+  }
+
+  /* --- BRAND.HTML --- */
+  .bh-title {
+    white-space: normal;
+    width: 90%;
+    font-size: clamp(1.3rem, 5.8vw, 1.9rem);
+    line-height: 1.15;
+  }
+
+  .bh-subtitle {
+    width: 88%;
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+
+  .bg-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .bg-title {
+    font-size: clamp(1.35rem, 5.8vw, 1.9rem);
+    line-height: 1.15;
+  }
+
+  .bf-title {
+    font-size: clamp(1.6rem, 6.5vw, 2.15rem);
+    line-height: 1.15;
+  }
+
+  .bf-desc {
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  /* --- PÁGINAS DE PROYECTOS (FELIX, SLATE, ACAI) --- */
+  .Oproject-hero {
+    padding: 0 20px;
+  }
+
+  .project-text-section {
+    margin: 50px auto 36px;
+    padding: 0 24px;
+  }
+
+  .project-text-title {
+    font-size: clamp(1.3rem, 5.2vw, 1.7rem);
+    line-height: 1.25;
+  }
+
+  .project-text-paragraph {
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  .p-stat-number {
+    font-size: clamp(1.6rem, 6.5vw, 2.1rem);
+  }
+
+  .p-stat-sub {
+    font-size: 0.88rem;
+  }
+
+  .visual-direction-title {
+    font-size: clamp(1.4rem, 5.8vw, 1.85rem);
+    margin-bottom: 26px;
+  }
+
+  /* --- CONTACT.HTML --- */
+  .contact-huge-title {
+    font-size: clamp(1.85rem, 8.8vw, 2.9rem);
+    line-height: 1.08;
+    margin-left: 0;
+    margin-bottom: 32px;
+  }
+
+  /* --- FOOTER (MÁS COMPACTO) --- */
+  .footer-banner {
+    padding: 48px 24px;
+  }
+
+  .footer-container {
+    gap: 32px;
+  }
+
+  .social-circle {
+    width: 38px;
+    height: 38px;
+  }
+
+  .social-circle svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .footer-center {
+    gap: 16px;
+  }
+
+  .footer-title {
+    font-size: clamp(1.3rem, 5.2vw, 1.75rem);
+    line-height: 1.18;
+  }
+
+  .footer-center p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  .footer-btn-pill {
+    padding: 10px 26px;
+    font-size: 0.8rem;
+  }
+
+  .footer-link {
+    font-size: 0.9rem;
+  }
+}
+
+
+.reel-controls {
+  top: auto;
+  bottom: 14px;
+  right: 14px;
+}
+
+
+/* =========================================================
+   GALERÍA DE BRANDING (MEJORA RESPONSIVE)
+   ========================================================= */
+@media (max-width: 900px) {
+  .branding-gallery-section {
+    padding: 32px 20px;
+    margin-bottom: 60px;
+  }
+
+  .bg-header {
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  /* Pone los puntos a la izquierda y el año 2026 a la derecha */
+  .bg-header-right {
+    width: 100%;
+    justify-content: space-between;
+    gap: 0;
+  }
+
+  .bg-year {
+    font-size: 0.95rem;
+  }
+
+  /* Elimina el espacio blanco excesivo arriba y abajo de la foto */
+  .bg-body-wrapper {
+    min-height: auto;
+  }
+
+  /* Permite deslizar con imán (snap) y evita que se corte la sombra */
+  .bg-gallery-viewport {
+    scroll-snap-type: x mandatory;
+    padding: 10px 0 18px;
+  }
+
+  .bg-gallery-track {
+    gap: 14px;
+    padding-left: 0;
+    padding-right: 16px;
+  }
+
+  /* Ancho al 78% para que se asome la siguiente foto e invite a deslizar */
+  .bg-gallery-card {
+    width: 78vw;
+    max-width: 320px;
+    border-radius: 8px;
+    scroll-snap-align: start;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  .bg-footer-line {
+    margin-top: 16px;
+  }
+}
+
+/* =========================================================
+   BRAND.HTML - BANNER FINAL (MEJORA RESPONSIVE)
+   ========================================================= */
+@media (max-width: 900px) {
+  .branding-feature-section {
+    padding: 0 24px;
+    margin-bottom: 80px;
+  }
+
+  .bf-container {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .bf-content {
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .bf-tagline {
+    font-size: 0.9rem;
+  }
+
+  .bf-title {
+    font-size: clamp(1.55rem, 6.5vw, 2.1rem);
+    line-height: 1.15;
+  }
+
+  .bf-desc {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    max-width: 100%;
+  }
+
+  .glass-btn-text {
+    margin-top: 8px;
+    padding: 10px 28px;
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+
+    margin-bottom: 10px;
+  }
+
+  /* Recupera la altura de la imagen (evita que colapse a 0px) */
+  .bf-image-wrapper {
+    width: 100%;
+    max-width: 340px;
+    aspect-ratio: 4 / 5;
+    margin: 0 auto;
+    cursor: default;
+  }
+}
+
+
+/* =========================================================
+   HERO DE PROYECTOS (SLATE, FELIX, ACAI) - RESPONSIVE
+   ========================================================= */
+@media (max-width: 900px) {
+  .Oproject-hero {
+    padding: 0 16px;
+    margin-top: 8px;
+  }
+
+  .project-hero-image-wrapper,
+  .banner-slate {
+    height: auto;
+    min-height: 240px;
+    aspect-ratio: 4 / 3; /* Evita el zoom excesivo en la foto */
+    border-radius: 16px;
+  }
+
+  .project-hero-bg {
+    object-position: center;
+  }
+
+  .project-hero-content {
+    left: 34px;   /* Separa el logo del borde izquierdo de la foto */
+    right: 34px;
+    bottom: 20px;
+    gap: 8px;
+  }
+
+  .project-badge,
+  .spray-tan {
+    font-size: 0.68rem;
+    padding: 4px 10px;
+  }
+
+  .project-logo {
+    height: 36px;
+    max-width: 180px;
   }
 }
