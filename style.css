@@ -4106,3 +4106,19 @@ h1, h2, h3, .headline-part, .sh-line, .footer-title {
     max-width: 180px;
   }
 }
+
+
+@media (max-width: 900px) {
+  /* Mantiene el video de fondo visible y acelerado por GPU */
+  #bgVideo {
+    display: block;
+    transform: translateZ(0);
+    will-change: transform;
+  }
+
+  /* Evita que el blur dinámico recalcule cada píxel de los videos al hacer scroll */
+  .scroll-blur-focus {
+    filter: none !important;
+    opacity: 1 !important;
+  }
+}
