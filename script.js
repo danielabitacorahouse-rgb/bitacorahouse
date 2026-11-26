@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ========================================================
-     1. VIDEO DE FONDO (ACTIVO EN MÓVIL Y ESCRITORIO SIN TRABAS)
+     1. VIDEO DE FONDO (ACTIVO EN MÓVIL, SAFARI Y ESCRITORIO)
      ======================================================== */
   const IDLE_SPEED = 0.85;
   const MAX_SPEED = 3.8;
@@ -32,10 +32,20 @@ document.addEventListener('DOMContentLoaded', () => {
   let scrollTimeout = null;
 
   if (bgVideoEl && bgVideoEl.tagName.toLowerCase() === 'video') {
+    bgVideoEl.muted = true;
+    bgVideoEl.defaultMuted = true;
+    bgVideoEl.setAttribute('muted', '');
+    bgVideoEl.setAttribute('playsinline', '');
     bgVideoEl.playbackRate = isMobileDevice ? 0.75 : IDLE_SPEED;
-    bgVideoEl.play().catch(() => {});
 
-    // Solo en escritorio aplicamos aceleración dinámica por scroll (en móvil corre fluido a velocidad constante)
+    const startBgVideo = () => {
+      bgVideoEl.play().catch(() => {});
+    };
+
+    startBgVideo();
+    document.addEventListener('touchstart', startBgVideo, { once: true, passive: true });
+    document.addEventListener('click', startBgVideo, { once: true });
+
     if (!isMobileDevice) {
       function updateBgSpeed() {
         currentRate += (targetRate - currentRate) * 0.1;
@@ -146,34 +156,57 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ========================================================
-     3. PRECARGA 4 SEGUNDOS ANTES + REPRODUCCIÓN INTELIGENTE
+     2.5. ASIGNACIÓN Y CARGA DE VIDEOS DESKTOP VS MOBILE (BRAND.HTML)
      ======================================================== */
-  const allVideos = document.querySelectorAll('.reel-video, .stacked-video');
+  const stackedVideos = document.querySelectorAll('.stacked-video');
+  stackedVideos.forEach(video => {
+    const desktopSrc = video.getAttribute('data-desktop-src');
+    const mobileSrc = video.getAttribute('data-mobile-src');
+    const originalSrc = video.getAttribute('src');
+    let chosenSrc = null;
+
+    if (desktopSrc || mobileSrc) {
+      chosenSrc = isMobileDevice ? (mobileSrc || desktopSrc) : desktopSrc;
+    } else if (originalSrc) {
+      chosenSrc = isMobileDevice ? originalSrc.replace(/(\.[^.]+)$/, 'mob$1') : originalSrc;
+    }
+
+    if (chosenSrc) {
+      video.src = chosenSrc;
+      video.muted = true;
+      video.playsInline = true;
+      video.preload = 'metadata';
+      video.load();
+      video.play().catch(() => {});
+    }
+  });
+
+  /* ========================================================
+     3. PRECARGA CONTROLADA + REPRODUCCIÓN INTELIGENTE
+     ======================================================== */
+  const allVideos = document.querySelectorAll('.reel-video');
 
   if (allVideos.length > 0) {
-    // 3A. Precarga 4 segundos antes (1200px vertical / 600px horizontal antes de entrar)
     const preloadObserver = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const video = entry.target;
-          video.preload = 'auto';
-          if (video.readyState === 0) {
+          if (video.preload === 'none') {
+            video.preload = 'metadata';
             video.load();
           }
-          if (!isMobileDevice) {
-            obs.unobserve(video);
-          }
+          obs.unobserve(video);
         }
       });
     }, {
-      rootMargin: '1200px 600px 1200px 600px',
+      rootMargin: '300px 200px 300px 200px',
       threshold: 0.01
     });
 
     allVideos.forEach(vid => preloadObserver.observe(vid));
 
-    // 3B. Reproducción inteligente: en móvil limita a los 2 videos más visibles para evitar lag
     const activeVideos = new Set();
+    const maxSimultaneous = isMobileDevice ? 2 : 4;
 
     const playObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -181,7 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const card = video.closest('.reel-card');
 
         if (entry.isIntersecting) {
-          if (isMobileDevice && activeVideos.size >= 2) {
+          if (activeVideos.size >= maxSimultaneous) {
             const oldest = activeVideos.values().next().value;
             if (oldest && oldest !== video) {
               oldest.pause();
@@ -202,7 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     }, {
-      threshold: isMobileDevice ? 0.5 : 0.35
+      threshold: 0.4
     });
 
     allVideos.forEach(vid => playObserver.observe(vid));
@@ -410,7 +443,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const delta = Math.abs(currentScrollY - lastScrollY);
     lastScrollY = currentScrollY;
 
-    // A. Difuminado del Hero en webs.html
     if (heroTextBlock) {
       const maxHeroScroll = 420;
       const heroProgress = Math.min(currentScrollY / maxHeroScroll, 1);
@@ -419,7 +451,6 @@ document.addEventListener('DOMContentLoaded', () => {
       heroTextBlock.style.transform = `scale(${(1 - (heroProgress * 0.05)).toFixed(3)})`;
     }
 
-    // B. Aceleración del video de fondo (solo escritorio)
     if (!isMobileDevice && bgVideoEl) {
       targetRate = IDLE_SPEED + (delta * 0.35);
       clearTimeout(scrollTimeout);
@@ -428,7 +459,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 100);
     }
 
-    // C. Efecto Enfoque-Desenfoque (solo escritorio para mantener 60fps en móvil)
     if (!isMobileDevice && focusElements.length > 0) {
       const windowHeight = window.innerHeight;
       const windowCenter = windowHeight / 2;
@@ -456,7 +486,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // D. Animación Brand In A Box (Brand.html)
     if (brandHeroSection && brandTitle && brandSubtitle) {
       const rect = brandHeroSection.getBoundingClientRect();
       const scrollDistance = rect.height - window.innerHeight;
@@ -549,7 +578,6 @@ document.addEventListener('DOMContentLoaded', () => {
   function openVideoModal(videoSrc) {
     if (!videoSrc) return;
 
-    // Pausamos los reels y el video de fondo para liberar recursos en el teléfono mientras ve el modal
     document.querySelectorAll('.reel-video').forEach(v => {
       v.pause();
       const card = v.closest('.reel-card');
@@ -575,7 +603,6 @@ document.addEventListener('DOMContentLoaded', () => {
     modalPlayer.load();
     document.body.style.overflow = '';
 
-    // Reanudamos el video de fondo al cerrar el modal
     if (bgVideoEl) {
       bgVideoEl.play().catch(() => {});
     }

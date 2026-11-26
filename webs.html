@@ -9,20 +9,18 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Marcellus&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://pub-6bf4c243ac1148e3a5c3381489ba08fd.r2.dev" crossorigin>
-<link rel="dns-prefetch" href="https://pub-6bf4c243ac1148e3a5c3381489ba08fd.r2.dev">
+  <link rel="preconnect" href="https://pub-6bf4c243ac1148e3a5c3381489ba08fd.r2.dev" crossorigin>
+  <link rel="dns-prefetch" href="https://pub-6bf4c243ac1148e3a5c3381489ba08fd.r2.dev">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<!-- INICIO DEL LOADER -->
+  <!-- INICIO DEL LOADER -->
   <div id="contenedor-loader">
-    <!-- Reemplaza la ruta por la de tu archivo mp4 -->
     <video class="video-loader" autoplay loop muted playsinline>
       <source src="1116.mp4" type="video/mp4">
     </video>
   </div>
   <!-- FIN DEL LOADER -->
-
 
   <!-- Cursor Personalizado: Círculo con Flecha -->
   <div class="custom-cursor" id="customCursor">
@@ -31,586 +29,602 @@
       <polyline points="7 7 17 7 17 17"></polyline>
     </svg>
   </div>
-<!-- Video de Fondo Nativo con Inercia por Scroll -->
-<video id="bgVideo" src="fondologob.mp4" autoplay loop muted playsinline preload="auto"></video>
-    <!-- Navegación -->
-     <header class="navbar">
-  <a href="#" class="brand-logo" aria-label="Home">
-    <img src="BHLOGO.png" alt="Símbolo de marca" class="brand-logo-img">
-  </a>
 
-  <nav class="nav-links">
-    <a href="webs.html" class="nav-link">Home</a>
-    <a href="Services.html" class="nav-link">Social Media</a>
-<a href="Brand.html" class="nav-link">Branding</a>
-    <a href="Contact.html" class="nav-link">Contact</a>
-  </nav>
-</header>
-    <!-- HERO SECTION -->
-    <section class="hero-section" id="home">
-      <div class="hero-text-block" id="heroTextBlock">
-        <div class="hero-row top-row">
-          <h1 class="headline-part">THE CREATIVE</h1>
-        </div>
+  <!-- Video de Fondo Nativo con Inercia por Scroll -->
+  <video id="bgVideo" src="fondologob.mp4" autoplay loop muted playsinline preload="auto"></video>
 
-        <div class="hero-row middle-row">
-          <p class="tagline">strategic branding.<br>
-creative content.<br>
-social media management.
-</p>
-          <h1 class="headline-part agency-title">STUDIO MADE</h1>
-        </div>
+  <!-- Navegación -->
+  <header class="navbar">
+    <a href="#" class="brand-logo" aria-label="Home">
+      <img src="BHLOGO.png" alt="Símbolo de marca" class="brand-logo-img">
+    </a>
 
-        <div class="hero-row bottom-row">
-          <h1 class="headline-part">TO CONNECT</h1>
-        </div>
+    <nav class="nav-links">
+      <a href="webs.html" class="nav-link">Home</a>
+      <a href="Services.html" class="nav-link">Social Media</a>
+      <a href="Brand.html" class="nav-link">Branding</a>
+      <a href="Contact.html" class="nav-link">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section" id="home">
+    <div class="hero-text-block" id="heroTextBlock">
+      <div class="hero-row top-row">
+        <h1 class="headline-part">THE CREATIVE</h1>
       </div>
-    </section>
 
-    <!-- CARRUSEL DE REELS CON CONTROLES -->
-    <section class="carousel-section">
-      <div class="carousel-nav-wrapper">
-        <button class="glass-btn" id="prevBtn" aria-label="Reel anterior">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="15 18 9 12 15 6"></polyline>
-          </svg>
-        </button>
-
-        <div class="carousel-viewport" id="carouselViewport">
-          <div class="carousel-track" id="carouselTrack">
-            <!-- Set 1 -->
-            <article class="reel-card">
-              <A href="#FELIX.HTML"><div class="reel-badge">FELIX RAMIREZ</div></A>
-              <div class="reel-controls">
-                <button class="reel-ctrl-btn btn-play" aria-label="Reproducir desde el inicio">
-                  <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
-                  <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
-                </button>
-                <button class="reel-ctrl-btn btn-mute" aria-label="Mutear o desmutear">
-                  <svg class="icon-unmuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
-                  <svg class="icon-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
-                </button>
-              </div>
-              <video class="reel-video"  loop muted playsinline preload="none" src="https://pub-6bf4c243ac1148e3a5c3381489ba08fd.r2.dev/Reel%205%20Felix%20(2).mp4"></video>
-            </article>
-
-            <article class="reel-card">
-              <a href="Services.html"><div class="reel-badge">FOOD & BEVERAGE</div></a>
-              <div class="reel-controls">
-                <button class="reel-ctrl-btn btn-play" aria-label="Reproducir desde el inicio">
-                  <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
-                  <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
-                </button>
-                <button class="reel-ctrl-btn btn-mute" aria-label="Mutear o desmutear">
-                  <svg class="icon-unmuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
-                  <svg class="icon-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
-                </button>
-              </div>
-              <video class="reel-video"  loop muted playsinline preload="none" src="https://pub-6bf4c243ac1148e3a5c3381489ba08fd.r2.dev/Meaning%20Of%20Parea.mp4"></video>
-            </article>
-
-            <article class="reel-card">
-             <a href="Acai.html"> <div class="reel-badge">ACAI DELIGHT</div></a>
-              <div class="reel-controls">
-                <button class="reel-ctrl-btn btn-play" aria-label="Reproducir desde el inicio">
-                  <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
-                  <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
-                </button>
-                <button class="reel-ctrl-btn btn-mute" aria-label="Mutear o desmutear">
-                  <svg class="icon-unmuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
-                  <svg class="icon-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
-                </button>
-              </div>
-              <video class="reel-video"  loop muted playsinline preload="none" src="https://pub-6bf4c243ac1148e3a5c3381489ba08fd.r2.dev/Mel%20%26%20Amor%20(1).mp4"></video>
-            </article>
-
-            <article class="reel-card">
-              <a href="Slate.html"><div class="reel-badge">SLATE</div></a>
-              <div class="reel-controls">
-                <button class="reel-ctrl-btn btn-play" aria-label="Reproducir desde el inicio">
-                  <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
-                  <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
-                </button>
-                <button class="reel-ctrl-btn btn-mute" aria-label="Mutear o desmutear">
-                  <svg class="icon-unmuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
-                  <svg class="icon-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
-                </button>
-              </div>
-              <video class="reel-video"  loop muted playsinline preload="none" src="https://pub-6bf4c243ac1148e3a5c3381489ba08fd.r2.dev/Sinus%20Relief%20Facial%20Ad%20V5.mp4"></video>
-            </article>
-
-            <article class="reel-card">
-             <a href="Felix.html"> <div class="reel-badge" href="Felix.html">FELIX RAMIREZ</div></a>
-              <div class="reel-controls">
-                <button class="reel-ctrl-btn btn-play" aria-label="Reproducir desde el inicio">
-                  <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
-                  <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
-                </button>
-                <button class="reel-ctrl-btn btn-mute" aria-label="Mutear o desmutear">
-                  <svg class="icon-unmuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
-                  <svg class="icon-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
-                </button>
-              </div>
-              <video class="reel-video"  loop muted playsinline preload="none" src="https://pub-6bf4c243ac1148e3a5c3381489ba08fd.r2.dev/Reel%20Felix%201%20%20Cta.mp4"></video>
-            </article>
-
-            <!-- Set Duplicado para bucle -->
-            <article class="reel-card" aria-hidden="true">
-             <a href="Services.html"> <div class="reel-badge">HAULING SERVICES</div></a>
-              <div class="reel-controls">
-                <button class="reel-ctrl-btn btn-play" aria-label="Reproducir desde el inicio">
-                  <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
-                  <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
-                </button>
-                <button class="reel-ctrl-btn btn-mute" aria-label="Mutear o desmutear">
-                  <svg class="icon-unmuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
-                  <svg class="icon-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
-                </button>
-              </div>
-              <video class="reel-video"  loop muted playsinline preload="none" src="https://pub-6bf4c243ac1148e3a5c3381489ba08fd.r2.dev/Reel%202.mp4"></video>
-            </article>
-
-            <article class="reel-card" aria-hidden="true">
-             <a href="Slate.html"> <div class="reel-badge">SLATE</div></a>
-              <div class="reel-controls">
-                <button class="reel-ctrl-btn btn-play" aria-label="Reproducir desde el inicio">
-                  <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
-                  <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
-                </button>
-                <button class="reel-ctrl-btn btn-mute" aria-label="Mutear o desmutear">
-                  <svg class="icon-unmuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
-                  <svg class="icon-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
-                </button>
-              </div>
-              <video class="reel-video"  loop muted playsinline preload="none" src="https://pub-6bf4c243ac1148e3a5c3381489ba08fd.r2.dev/You%20Skin%20Is%20Begging%20You%20For%20This.mp4"></video>
-            </article>
-
-            <article class="reel-card" aria-hidden="true">
-              <a href="Services.html"><div class="reel-badge">HAULING SERVICES</div></a>
-              <div class="reel-controls">
-                <button class="reel-ctrl-btn btn-play" aria-label="Reproducir desde el inicio">
-                  <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
-                  <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
-                </button>
-                <button class="reel-ctrl-btn btn-mute" aria-label="Mutear o desmutear">
-                  <svg class="icon-unmuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
-                  <svg class="icon-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
-                </button>
-              </div>
-              <video class="reel-video"  loop muted playsinline preload="none" src="https://pub-6bf4c243ac1148e3a5c3381489ba08fd.r2.dev/Reel%205.mp4"></video>
-            </article>
-
-            <article class="reel-card" aria-hidden="true">
-             <a href="Services.html"> <div class="reel-badge">FOOD & BEVERAGE</div></a>
-              <div class="reel-controls">
-                <button class="reel-ctrl-btn btn-play" aria-label="Reproducir desde el inicio">
-                  <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
-                  <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
-                </button>
-                <button class="reel-ctrl-btn btn-mute" aria-label="Mutear o desmutear">
-                  <svg class="icon-unmuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
-                  <svg class="icon-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
-                </button>
-              </div>
-              <video class="reel-video"  loop muted playsinline preload="none" src="https://pub-6bf4c243ac1148e3a5c3381489ba08fd.r2.dev/Reel%202%20-%20Hawaiian%20Fajitas.mp4"></video>
-            </article>
-
-            <article class="reel-card" aria-hidden="true">
-             <a href="Acai.html"> <div class="reel-badge">ACAI DELIGHT</div></a>
-              <div class="reel-controls">
-                <button class="reel-ctrl-btn btn-play" aria-label="Reproducir desde el inicio">
-                  <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
-                  <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
-                </button>
-                <button class="reel-ctrl-btn btn-mute" aria-label="Mutear o desmutear">
-                  <svg class="icon-unmuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
-                  <svg class="icon-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
-                </button>
-              </div>
-              <video class="reel-video"  loop muted playsinline preload="none" src="https://pub-6bf4c243ac1148e3a5c3381489ba08fd.r2.dev/Ocean%20Brreze%20Base.mp4"></video>
-            </article> 
-            <article class="reel-card" aria-hidden="true">
-             <a href="Services.html"> <div class="reel-badge">HOME ORGANIZATION</div></a>
-              <div class="reel-controls">
-                <button class="reel-ctrl-btn btn-play" aria-label="Reproducir desde el inicio">
-                  <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
-                  <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
-                </button>
-                <button class="reel-ctrl-btn btn-mute" aria-label="Mutear o desmutear">
-                  <svg class="icon-unmuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
-                  <svg class="icon-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
-                </button>
-              </div>
-              <video class="reel-video"  loop muted playsinline src="https://pub-6bf4c243ac1148e3a5c3381489ba08fd.r2.dev/Reel%20Spaceset%20-3%20Signs%20You%20Home%20V3.mp4"></video>
-            </article> 
-            <article class="reel-card" aria-hidden="true">
-             <a href="Services.html"> <div class="reel-badge">FOOD & BEVERAGE</div></a>
-              <div class="reel-controls">
-                <button class="reel-ctrl-btn btn-play" aria-label="Reproducir desde el inicio">
-                  <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
-                  <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
-                </button>
-                <button class="reel-ctrl-btn btn-mute" aria-label="Mutear o desmutear">
-                  <svg class="icon-unmuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
-                  <svg class="icon-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
-                </button>
-              </div>
-              <video class="reel-video"  loop muted playsinline preload="none" src="https://pub-6bf4c243ac1148e3a5c3381489ba08fd.r2.dev/Reel%202%20-%20Hawaiian%20Fajitas.mp4"></video>
-            </article> 
-          </div>
-        </div>
-
-        <button class="glass-btn" id="nextBtn" aria-label="Reel siguiente">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="9 18 15 12 9 6"></polyline>
-          </svg>
-        </button>
+      <div class="hero-row middle-row">
+        <p class="tagline">strategic branding.<br>
+          creative content.<br>
+          social media management.
+        </p>
+        <h1 class="headline-part agency-title">STUDIO MADE</h1>
       </div>
-    </section>
 
-    <!-- BANNER 1: SERVICIOS (FONDO BLANCO SÓLIDO) -->
-    <section class="services-section" id="services">
-      <div class="services-container">
-        
-        <header class="services-header">
-          <h2 class="services-title">WHAT WE DO</h2>
-          <p class="services-subtitle">Creative solutions that help <br> brands grow, connect, and stand out</p>
-        </header>
+      <div class="hero-row bottom-row">
+        <h1 class="headline-part">TO CONNECT</h1>
+      </div>
+    </div>
+  </section>
 
-        <div class="accordion-list">
-          <article class="accordion-item active" data-index="01">
-            <div class="accordion-trigger">
-              <span class="item-number">(01)</span>
-              <div class="item-preview">
-                <img src="2.jpg" loading="lazy" alt="Brands visual" class="item-img">
-              </div>
-              <div class="item-content-wrap">
-                <h3 class="item-title">BRANDING</h3>
-                <div class="item-details">
-                  <p class="item-description">
-From brand strategy and visual identity to logos, typography, color palettes, brand guidelines, and creative direction, we build every detail of your brand with intention </p>
-                  <a href="Brand.html" class="btn-pill">EXPLORE SERVICE</a>
-                </div>
-              </div>
+  <!-- CARRUSEL DE REELS CON CONTROLES (11 VIDEOS ÚNICOS) -->
+  <section class="carousel-section">
+    <div class="carousel-nav-wrapper">
+      <button class="glass-btn" id="prevBtn" aria-label="Reel anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+
+      <div class="carousel-viewport" id="carouselViewport">
+        <div class="carousel-track" id="carouselTrack">
+          <!-- Reel 1 -->
+          <article class="reel-card">
+            <a href="Felix.html"><div class="reel-badge">FELIX RAMIREZ</div></a>
+            <div class="reel-controls">
+              <button class="reel-ctrl-btn btn-play" aria-label="Reproducir desde el inicio">
+                <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+              </button>
+              <button class="reel-ctrl-btn btn-mute" aria-label="Mutear o desmutear">
+                <svg class="icon-unmuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+                <svg class="icon-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+              </button>
             </div>
+            <video class="reel-video" loop muted playsinline preload="none" src="https://pub-6bf4c243ac1148e3a5c3381489ba08fd.r2.dev/Reel%205%20Felix%20(2).mp4"></video>
           </article>
 
-          <article class="accordion-item" data-index="02">
-            <div class="accordion-trigger">
-              <span class="item-number">(02)</span>
-              <div class="item-preview">
-                <img src="1.jpg" loading="lazy" alt="Content Creation visual" class="item-img">
-              </div>
-              <div class="item-content-wrap">
-                <h3 class="item-title">CONTENT CREATION</h3>
-                <div class="item-details">
-                  <p class="item-description">
-From creative concepts and on-site production to professional photography, video editing, and social media content, we create visuals that capture your brand from every angle
-                  </p>
-                  <a href="Services.html" class="btn-pill">EXPLORE SERVICE</a>
-                </div>
-              </div>
+          <!-- Reel 2 -->
+          <article class="reel-card">
+            <a href="Services.html"><div class="reel-badge">FOOD &amp; BEVERAGE</div></a>
+            <div class="reel-controls">
+              <button class="reel-ctrl-btn btn-play" aria-label="Reproducir desde el inicio">
+                <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+              </button>
+              <button class="reel-ctrl-btn btn-mute" aria-label="Mutear o desmutear">
+                <svg class="icon-unmuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+                <svg class="icon-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+              </button>
             </div>
-          </article>      
+            <video class="reel-video" loop muted playsinline preload="none" src="https://pub-6bf4c243ac1148e3a5c3381489ba08fd.r2.dev/Meaning%20Of%20Parea.mp4"></video>
+          </article>
 
-          <article class="accordion-item" data-index="05">
-            <div class="accordion-trigger">
-              <span class="item-number">(03)</span>
-              <div class="item-preview">
-                <img src="5.jpg" loading="lazy" alt="Social Media Management visual" class="item-img">
-              </div>
-              <div class="item-content-wrap">
-                <h3 class="item-title">SOCIAL MEDIA MANAGEMENT</h3>
-                <div class="item-details">
-                  <p class="item-description">
-We handle the strategy, content planning, creation, and day-to-day management of your social media, keeping your brand consistent, active, and relevant
-                  </p>
-                  <a href="Services.html" class="btn-pill">EXPLORE SERVICE</a>
-                </div>
-              </div>
+          <!-- Reel 3 -->
+          <article class="reel-card">
+            <a href="Acai.html"><div class="reel-badge">ACAI DELIGHT</div></a>
+            <div class="reel-controls">
+              <button class="reel-ctrl-btn btn-play" aria-label="Reproducir desde el inicio">
+                <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+              </button>
+              <button class="reel-ctrl-btn btn-mute" aria-label="Mutear o desmutear">
+                <svg class="icon-unmuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+                <svg class="icon-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+              </button>
             </div>
+            <video class="reel-video" loop muted playsinline preload="none" src="https://pub-6bf4c243ac1148e3a5c3381489ba08fd.r2.dev/Mel%20%26%20Amor%20(1).mp4"></video>
+          </article>
+
+          <!-- Reel 4 -->
+          <article class="reel-card">
+            <a href="Slate.html"><div class="reel-badge">SLATE</div></a>
+            <div class="reel-controls">
+              <button class="reel-ctrl-btn btn-play" aria-label="Reproducir desde el inicio">
+                <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+              </button>
+              <button class="reel-ctrl-btn btn-mute" aria-label="Mutear o desmutear">
+                <svg class="icon-unmuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+                <svg class="icon-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+              </button>
+            </div>
+            <video class="reel-video" loop muted playsinline preload="none" src="https://pub-6bf4c243ac1148e3a5c3381489ba08fd.r2.dev/Sinus%20Relief%20Facial%20Ad%20V5.mp4"></video>
+          </article>
+
+          <!-- Reel 5 -->
+          <article class="reel-card">
+            <a href="Felix.html"><div class="reel-badge">FELIX RAMIREZ</div></a>
+            <div class="reel-controls">
+              <button class="reel-ctrl-btn btn-play" aria-label="Reproducir desde el inicio">
+                <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+              </button>
+              <button class="reel-ctrl-btn btn-mute" aria-label="Mutear o desmutear">
+                <svg class="icon-unmuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+                <svg class="icon-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+              </button>
+            </div>
+            <video class="reel-video" loop muted playsinline preload="none" src="https://pub-6bf4c243ac1148e3a5c3381489ba08fd.r2.dev/Reel%20Felix%201%20%20Cta.mp4"></video>
+          </article>
+
+          <!-- Reel 6 -->
+          <article class="reel-card">
+            <a href="Services.html"><div class="reel-badge">HAULING SERVICES</div></a>
+            <div class="reel-controls">
+              <button class="reel-ctrl-btn btn-play" aria-label="Reproducir desde el inicio">
+                <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+              </button>
+              <button class="reel-ctrl-btn btn-mute" aria-label="Mutear o desmutear">
+                <svg class="icon-unmuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+                <svg class="icon-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+              </button>
+            </div>
+            <video class="reel-video" loop muted playsinline preload="none" src="https://pub-6bf4c243ac1148e3a5c3381489ba08fd.r2.dev/Reel%202.mp4"></video>
+          </article>
+
+          <!-- Reel 7 -->
+          <article class="reel-card">
+            <a href="Slate.html"><div class="reel-badge">SLATE</div></a>
+            <div class="reel-controls">
+              <button class="reel-ctrl-btn btn-play" aria-label="Reproducir desde el inicio">
+                <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+              </button>
+              <button class="reel-ctrl-btn btn-mute" aria-label="Mutear o desmutear">
+                <svg class="icon-unmuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+                <svg class="icon-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+              </button>
+            </div>
+            <video class="reel-video" loop muted playsinline preload="none" src="https://pub-6bf4c243ac1148e3a5c3381489ba08fd.r2.dev/You%20Skin%20Is%20Begging%20You%20For%20This.mp4"></video>
+          </article>
+
+          <!-- Reel 8 -->
+          <article class="reel-card">
+            <a href="Services.html"><div class="reel-badge">HAULING SERVICES</div></a>
+            <div class="reel-controls">
+              <button class="reel-ctrl-btn btn-play" aria-label="Reproducir desde el inicio">
+                <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+              </button>
+              <button class="reel-ctrl-btn btn-mute" aria-label="Mutear o desmutear">
+                <svg class="icon-unmuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+                <svg class="icon-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+              </button>
+            </div>
+            <video class="reel-video" loop muted playsinline preload="none" src="https://pub-6bf4c243ac1148e3a5c3381489ba08fd.r2.dev/Reel%205.mp4"></video>
+          </article>
+
+          <!-- Reel 9 -->
+          <article class="reel-card">
+            <a href="Services.html"><div class="reel-badge">FOOD &amp; BEVERAGE</div></a>
+            <div class="reel-controls">
+              <button class="reel-ctrl-btn btn-play" aria-label="Reproducir desde el inicio">
+                <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+              </button>
+              <button class="reel-ctrl-btn btn-mute" aria-label="Mutear o desmutear">
+                <svg class="icon-unmuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+                <svg class="icon-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+              </button>
+            </div>
+            <video class="reel-video" loop muted playsinline preload="none" src="https://pub-6bf4c243ac1148e3a5c3381489ba08fd.r2.dev/Reel%202%20-%20Hawaiian%20Fajitas.mp4"></video>
+          </article>
+
+          <!-- Reel 10 -->
+          <article class="reel-card">
+            <a href="Acai.html"><div class="reel-badge">ACAI DELIGHT</div></a>
+            <div class="reel-controls">
+              <button class="reel-ctrl-btn btn-play" aria-label="Reproducir desde el inicio">
+                <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+              </button>
+              <button class="reel-ctrl-btn btn-mute" aria-label="Mutear o desmutear">
+                <svg class="icon-unmuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+                <svg class="icon-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+              </button>
+            </div>
+            <video class="reel-video" loop muted playsinline preload="none" src="https://pub-6bf4c243ac1148e3a5c3381489ba08fd.r2.dev/Ocean%20Brreze%20Base.mp4"></video>
+          </article>
+
+          <!-- Reel 11 -->
+          <article class="reel-card">
+            <a href="Services.html"><div class="reel-badge">HOME ORGANIZATION</div></a>
+            <div class="reel-controls">
+              <button class="reel-ctrl-btn btn-play" aria-label="Reproducir desde el inicio">
+                <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+              </button>
+              <button class="reel-ctrl-btn btn-mute" aria-label="Mutear o desmutear">
+                <svg class="icon-unmuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+                <svg class="icon-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+              </button>
+            </div>
+            <video class="reel-video" loop muted playsinline preload="none" src="https://pub-6bf4c243ac1148e3a5c3381489ba08fd.r2.dev/Reel%20Spaceset%20-3%20Signs%20You%20Home%20V3.mp4"></video>
           </article>
         </div>
-
       </div>
-    </section>
 
-    <!-- BANNER 2: STATS / GRID -->
-    <section class="stats-section" id="stats">
-      <div class="stats-grid">
-        <div class="stat-cell scroll-reveal">
-          <p class="stat-intro-text">
-We shape how brands look, feel, and connect with their audience.          </p>
-        </div>
+      <button class="glass-btn" id="nextBtn" aria-label="Reel siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+    </div>
+  </section>
 
-        <div class="stat-cell stat-with-accent scroll-reveal">
-          <h3 class="stat-title">YOUR VISION, OUR CREATIVE PERSPECTIVE</h3>
-          <p class="stat-sub">Every detail tells a part of your story</p>
-        </div>
+  <!-- BANNER 1: SERVICIOS (FONDO BLANCO SÓLIDO) -->
+  <section class="services-section" id="services">
+    <div class="services-container">
+      <header class="services-header">
+        <h2 class="services-title">WHAT WE DO</h2>
+        <p class="services-subtitle">Creative solutions that help <br> brands grow, connect, and stand out</p>
+      </header>
 
-        <div class="stat-cell stat-with-accent scroll-reveal">
-          <div class="stat-value-group">
-            <span class="stat-number">20+</span>
-            <span class="stat-label">CLIENTS</span>
+      <div class="accordion-list">
+        <article class="accordion-item active" data-index="01">
+          <div class="accordion-trigger">
+            <span class="item-number">(01)</span>
+            <div class="item-preview">
+              <img src="2.jpg" loading="lazy" alt="Brands visual" class="item-img">
+            </div>
+            <div class="item-content-wrap">
+              <h3 class="item-title">BRANDING</h3>
+              <div class="item-details">
+                <p class="item-description">
+                  From brand strategy and visual identity to logos, typography, color palettes, brand guidelines, and creative direction, we build every detail of your brand with intention
+                </p>
+                <a href="Brand.html" class="btn-pill">EXPLORE SERVICE</a>
+              </div>
+            </div>
           </div>
-          <p class="stat-sub">Real strategy. Measurable progress
-</p>
-        </div>
+        </article>
 
-        <div class="stat-cell stat-with-accent scroll-reveal">
-          <h3 class="stat-title">GOOD IDEAS DESERVE DIRECTION</h3>
-          <p class="stat-sub">A thoughtful approach from concept to creation
-</p>
-        </div>
+        <article class="accordion-item" data-index="02">
+          <div class="accordion-trigger">
+            <span class="item-number">(02)</span>
+            <div class="item-preview">
+              <img src="1.jpg" loading="lazy" alt="Content Creation visual" class="item-img">
+            </div>
+            <div class="item-content-wrap">
+              <h3 class="item-title">CONTENT CREATION</h3>
+              <div class="item-details">
+                <p class="item-description">
+                  From creative concepts and on-site production to professional photography, video editing, and social media content, we create visuals that capture your brand from every angle
+                </p>
+                <a href="Services.html" class="btn-pill">EXPLORE SERVICE</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="accordion-item" data-index="05">
+          <div class="accordion-trigger">
+            <span class="item-number">(03)</span>
+            <div class="item-preview">
+              <img src="5.jpg" loading="lazy" alt="Social Media Management visual" class="item-img">
+            </div>
+            <div class="item-content-wrap">
+              <h3 class="item-title">SOCIAL MEDIA MANAGEMENT</h3>
+              <div class="item-details">
+                <p class="item-description">
+                  We handle the strategy, content planning, creation, and day-to-day management of your social media, keeping your brand consistent, active, and relevant
+                </p>
+                <a href="Services.html" class="btn-pill">EXPLORE SERVICE</a>
+              </div>
+            </div>
+          </div>
+        </article>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- BANNER: BRANDS (DISTRIBUCIÓN ASIMÉTRICA CON LOS 3 PROYECTOS) -->
-    <section class="brands-section" id="brands">
-      <div class="brands-container">
-        
-        <header class="brands-header scroll-reveal">
-          <h2 class="brands-main-title">BRANDING</h2>
-        </header>
+  <!-- BANNER 2: STATS / GRID -->
+  <section class="stats-section" id="stats">
+    <div class="stats-grid">
+      <div class="stat-cell scroll-reveal">
+        <p class="stat-intro-text">
+          We shape how brands look, feel, and connect with their audience.
+        </p>
+      </div>
 
-        <div class="brands-grid">
-          <!-- Item 1 (Izquierda) -->
-            <a href="Brand.html#Bitacora" style="text-decoration: none; color: inherit;">  <div class="brand-item scroll-reveal" data-cursor="hover"></div><div class="brand-item scroll-reveal" data-cursor="hover">
+      <div class="stat-cell stat-with-accent scroll-reveal">
+        <h3 class="stat-title">YOUR VISION, OUR CREATIVE PERSPECTIVE</h3>
+        <p class="stat-sub">Every detail tells a part of your story</p>
+      </div>
+
+      <div class="stat-cell stat-with-accent scroll-reveal">
+        <div class="stat-value-group">
+          <span class="stat-number">20+</span>
+          <span class="stat-label">CLIENTS</span>
+        </div>
+        <p class="stat-sub">Real strategy. Measurable progress</p>
+      </div>
+
+      <div class="stat-cell stat-with-accent scroll-reveal">
+        <h3 class="stat-title">GOOD IDEAS DESERVE DIRECTION</h3>
+        <p class="stat-sub">A thoughtful approach from concept to creation</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BANNER: BRANDS -->
+  <section class="brands-section" id="brands">
+    <div class="brands-container">
+      <header class="brands-header scroll-reveal">
+        <h2 class="brands-main-title">BRANDING</h2>
+      </header>
+
+      <div class="brands-grid">
+        <!-- Item 1 (Izquierda) -->
+        <a href="Brand.html#Bitacora" style="text-decoration: none; color: inherit;">
+          <div class="brand-item scroll-reveal" data-cursor="hover">
             <div class="brand-image-wrapper">
-              <img src="bitacora.png" alt="Space Set" class="brand-img">
+              <img src="bitacora.png" loading="lazy" alt="Bitacora House" class="brand-img">
             </div>
             <div class="brand-footer">
               <span class="brand-name">BITACORA HOUSE</span>
-              <span class="brand-arrow">↗</span>
+              <span class="brand-arrow">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </span>
             </div>
-          </div></a>
+          </div>
+        </a>
 
-          <!-- Item 2 (Centro) -->
-         
-         
-         <a href="Brand.html#Harianna" style="text-decoration: none; color: inherit;">  <div class="brand-item scroll-reveal" data-cursor="hover">
+        <!-- Item 2 (Centro) -->
+        <a href="Brand.html#Harianna" style="text-decoration: none; color: inherit;">
+          <div class="brand-item scroll-reveal" data-cursor="hover">
             <div class="brand-image-wrapper">
-              <img src="2.png" alt="Harianna" class="brand-img">
+              <img src="2.png" loading="lazy" alt="Harianna" class="brand-img">
             </div>
             <div class="brand-footer">
               <span class="brand-name">HARIANNA</span>
-              <span class="brand-arrow">↗</span>
+              <span class="brand-arrow">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </span>
             </div>
-          </div></a>
-<!-- Item 3 (Derecha Grande / Hero) -->
-<a href="Brand.html#Spaceset" style="text-decoration: none; color: inherit;"> 
-  <div class="brand-item brand-item-featured scroll-reveal" data-cursor="hover">
-    <div class="brand-image-wrapper">
-      <img src="1.png" alt="Eli´s" class="brand-img">
+          </div>
+        </a>
+
+        <!-- Item 3 (Derecha Grande / Hero) -->
+        <a href="Brand.html#Spaceset" style="text-decoration: none; color: inherit;">
+          <div class="brand-item brand-item-featured scroll-reveal" data-cursor="hover">
+            <div class="brand-image-wrapper">
+              <img src="1.png" loading="lazy" alt="Space Set" class="brand-img">
+            </div>
+            <div class="brand-footer">
+              <span class="brand-name">SPACE SET</span>
+              <span class="brand-arrow">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
     </div>
-    <div class="brand-footer">
-      <span class="brand-name">SPACE SET</span>
-      <span class="brand-arrow">↗</span>
+  </section>
+
+  <!-- BANNER: OUR PROCESS (STACKING CARDS) -->
+  <header class="brands-header scroll-reveal">
+    <h2 class="brands-main-title">OUR PROCESS</h2>
+  </header>
+
+  <section class="process-section" id="process">
+    <div class="process-cards-container">
+      <!-- Tarjeta 1 (IMÁGENES) -->
+      <article class="process-card">
+        <div class="pc-content">
+          <img src="BH2LOGO.png" loading="lazy" alt="BH Logo" class="pc-logo">
+          <h2 class="pc-title">DISCOVERY <span class="text-wine">CALL</span></h2>
+          <p class="pc-desc">We start with a conversation to get to know your business, your goals, and what you're looking for.</p>
+          <a href="https://wa.me/19188155447" class="pc-btn">BOOK A DISCOVERY CALL</a>
+        </div>
+        <div class="pc-video pc-vid-top scroll-reveal">
+          <img src="agenda.jpg" loading="lazy" alt="Discovery Call 1" class="pc-media">
+        </div>
+        <div class="pc-video pc-vid-bottom scroll-reveal" style="transition-delay: 0.2s;">
+          <img src="agenda2.jpg" loading="lazy" alt="Discovery Call 2" class="pc-media">
+        </div>
+      </article>
+
+      <!-- Tarjeta 2 (IMÁGENES) -->
+      <article class="process-card">
+        <div class="pc-content">
+          <img src="BH2LOGO.png" loading="lazy" alt="BH Logo" class="pc-logo">
+          <h2 class="pc-title">CREATIVE <span class="text-wine">DIRECTION</span></h2>
+          <p class="pc-desc">Once we understand your needs, we put together a plan, timeline, and creative direction tailored to your project.</p>
+        </div>
+        <div class="pc-video pc-vid-top scroll-reveal">
+          <img src="creative.jpg" loading="lazy" alt="Creative Direction 1" class="pc-media">
+        </div>
+        <div class="pc-video pc-vid-bottom scroll-reveal" style="transition-delay: 0.2s;">
+          <img src="creative2.jpg" loading="lazy" alt="Creative Direction 2" class="pc-media">
+        </div>
+      </article>
+
+      <!-- Tarjeta 3 (VIDEOS) -->
+      <article class="process-card">
+        <div class="pc-content">
+          <img src="BH2LOGO.png" loading="lazy" alt="BH Logo" class="pc-logo">
+          <h2 class="pc-title">CREATION</h2>
+          <p class="pc-desc">This is where we get to work. From designing and filming to editing and building your content, we bring the plan together.</p>
+        </div>
+        <div class="pc-video pc-vid-top scroll-reveal">
+          <video src="https://res.cloudinary.com/j0gqetbh/video/upload/q_auto,f_auto,w_400/v1795008842/sam3.mp4" autoplay loop muted playsinline preload="none" class="pc-media"></video>
+        </div>
+        <div class="pc-video pc-vid-bottom scroll-reveal" style="transition-delay: 0.2s;">
+          <video src="https://res.cloudinary.com/j0gqetbh/video/upload/q_auto,f_auto,w_400/v1795008839/sam2.mp4" autoplay loop muted playsinline preload="none" class="pc-media"></video>
+        </div>
+      </article>
+
+      <!-- Tarjeta 4 (IMÁGENES) -->
+      <article class="process-card">
+        <div class="pc-content">
+          <img src="BH2LOGO.png" loading="lazy" alt="BH Logo" class="pc-logo">
+          <h2 class="pc-title">LAUNCH <span class="text-wine">&amp; BEYOND</span></h2>
+          <p class="pc-desc">Your project is ready to go. Whether it's a new brand identity, finished content, or ongoing social media management, we make sure everything is ready for its next step.</p>
+        </div>
+        <div class="pc-video pc-vid-top scroll-reveal">
+          <img src="post.jpg" loading="lazy" alt="Launch and Beyond 1" class="pc-media">
+        </div>
+        <div class="pc-video pc-vid-bottom scroll-reveal" style="transition-delay: 0.2s;">
+          <img src="post2.jpg" loading="lazy" alt="Launch and Beyond 2" class="pc-media">
+        </div>
+      </article>
     </div>
-  </div>
-</a>
+  </section>
 
+  <!-- BANNER: MARQUEE EN BUCLE -->
+  <section class="marquee-section">
+    <div class="marquee-track marquee-left">
+      <div class="marquee-group">
+        <span class="marquee-text">Let’s work together<span class="marquee-dot">.</span></span>
+        <span class="marquee-text">Let’s work together<span class="marquee-dot">.</span></span>
+        <span class="marquee-text">Let’s work together<span class="marquee-dot">.</span></span>
+        <span class="marquee-text">Let’s work together<span class="marquee-dot">.</span></span>
       </div>
-    </section>
-<!-- BANNER: OUR PROCESS (STACKING CARDS) -->
+      <div class="marquee-group" aria-hidden="true">
+        <span class="marquee-text">Let’s work together<span class="marquee-dot">.</span></span>
+        <span class="marquee-text">Let’s work together<span class="marquee-dot">.</span></span>
+        <span class="marquee-text">Let’s work together<span class="marquee-dot">.</span></span>
+        <span class="marquee-text">Let’s work together<span class="marquee-dot">.</span></span>
+      </div>
+    </div>
 
-<header class="brands-header scroll-reveal">
-          <h2 class="brands-main-title">OUR PROCESS</h2>
-        </header>
-<section class="process-section" id="process">
-  <div class="process-cards-container">
+    <div class="marquee-track marquee-right">
+      <div class="marquee-group">
+        <span class="marquee-text">Let’s work together<span class="marquee-dot">.</span></span>
+        <span class="marquee-text">Let’s work together<span class="marquee-dot">.</span></span>
+        <span class="marquee-text">Let’s work together<span class="marquee-dot">.</span></span>
+        <span class="marquee-text">Let’s work together<span class="marquee-dot">.</span></span>
+      </div>
+      <div class="marquee-group" aria-hidden="true">
+        <span class="marquee-text">Let’s work together<span class="marquee-dot">.</span></span>
+        <span class="marquee-text">Let’s work together<span class="marquee-dot">.</span></span>
+        <span class="marquee-text">Let’s work together<span class="marquee-dot">.</span></span>
+        <span class="marquee-text">Let’s work together<span class="marquee-dot">.</span></span>
+      </div>
+    </div>
+  </section>
 
-    <!-- Tarjeta 1 (IMÁGENES) -->
-    <article class="process-card">
-      <div class="pc-content">
-        <img src="BH2LOGO.png" alt="BH Logo" class="pc-logo">
-        <h2 class="pc-title">DISCOVERY <span class="text-wine">CALL</span></h2>
-        <p class="pc-desc">We start with a conversation to get to know your business, your goals, and what you're looking for.</p>
-        <a href="https://wa.me/19188155447" class="pc-btn">BOOK A DISCOVERY CALL</a>
-      </div>
-      <div class="pc-video pc-vid-top scroll-reveal">
-        <img src="agenda.jpg" loading="lazy" alt="Discovery Call 1" class="pc-media">
-      </div>
-      <div class="pc-video pc-vid-bottom scroll-reveal" style="transition-delay: 0.2s;">
-        <img src="agenda2.jpg" loading="lazy" alt="Discovery Call 2" class="pc-media">
-      </div>
-    </article>
+  <!-- BANNER: REVIEWS / TESTIMONIOS -->
+  <section class="reviews-section" id="reviews">
+    <div class="reviews-container">
+      <div class="reviews-grid">
+        <article class="review-card scroll-reveal">
+          <p class="review-quote">
+            “As a business owner, it’s not always easy to hand over parts of your business to someone else, especially when you’ve spent years building your brand. Working with Samantha has been such a great experience. I appreciate her creativity, her attention to detail, and the effort she puts into understanding our brand and bringing the vision to life.
+<br>
+Having someone I can trust with our social media takes so much off my plate and allows me to focus on other areas of my business. I’m genuinely grateful to have Samantha in our corner and would absolutely recommend her to other business owners!”
+          </p>
+          <span class="review-author">SLATE</span>
+          <div class="review-stars" aria-label="5 estrellas">
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+          </div>
+        </article>
 
-    <!-- Tarjeta 2 (IMÁGENES) -->
-    <article class="process-card">
-      <div class="pc-content">
-        <img src="BH2LOGO.png" loading="lazy" alt="BH Logo" class="pc-logo">
-        <h2 class="pc-title">CREATIVE <span class="text-wine">DIRECTION</span></h2>
-        <p class="pc-desc">Once we understand your needs, we put together a plan, timeline, and creative direction tailored to your project.
-</p>
-      </div>
-      <div class="pc-video pc-vid-top scroll-reveal">
-        <img src="creative.jpg" loading="lazy" alt="Creative Direction 1" class="pc-media">
-      </div>
-      <div class="pc-video pc-vid-bottom scroll-reveal" style="transition-delay: 0.2s;">
-        <img src="creative2.jpg" loading="lazy" alt="Creative Direction 2" class="pc-media">
-      </div>
-    </article>
+        <article class="review-card scroll-reveal">
+          <p class="review-quote">
+            “As a business owner, it’s not always easy to hand over parts of your business to someone else, especially when you’ve spent years building your brand. Working with Samantha has been such a great experience. I appreciate her creativity, her attention to detail, and the effort she puts into understanding our brand and bringing the vision to life.
+<br>
+Having someone I can trust with our social media takes so much off my plate and allows me to focus on other areas of my business. I’m genuinely grateful to have Samantha in our corner and would absolutely recommend her to other business owners!”
+          </p>
+          <span class="review-author">FELIX RAMIREZ</span>
+          <div class="review-stars" aria-label="5 estrellas">
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+          </div>
+        </article>
 
-    <!-- Tarjeta 3 (VIDEOS - igual que antes) -->
-    <article class="process-card">
-      <div class="pc-content">
-        <img src="BH2LOGO.png" loading="lazy" alt="BH Logo" class="pc-logo">
-        <h2 class="pc-title">CREATION</h2>
-        <p class="pc-desc">This is where we get to work. From designing and filming to editing and building your content, we bring the plan together.</p>
+        <article class="review-card scroll-reveal">
+          <p class="review-quote">
+            As a business owner, it’s not always easy to hand over parts of your business to someone else, especially when you’ve spent years building your brand. Working with Samantha has been such a great experience. I appreciate her creativity, her attention to detail, and the effort she puts into understanding our brand and bringing the vision to life.
+<br>
+Having someone I can trust with our social media takes so much off my plate and allows me to focus on other areas of my business. I’m genuinely grateful to have Samantha in our corner and would absolutely recommend her to other business owners!
+          </p>
+          <span class="review-author">ACAI DELIGHT</span>
+          <div class="review-stars" aria-label="5 estrellas">
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+          </div>
+        </article>
       </div>
-      <div class="pc-video pc-vid-top scroll-reveal">
-        <video src="https://res.cloudinary.com/j0gqetbh/video/upload/q_auto,f_auto,w_400/v1795008842/sam3.mp4" autoplay loop muted playsinline class="pc-media "></video>
-      </div>
-      <div class="pc-video pc-vid-bottom scroll-reveal" style="transition-delay: 0.2s;">
-        <video src="https://res.cloudinary.com/j0gqetbh/video/upload/q_auto,f_auto,w_400/v1795008839/sam2.mp4" autoplay loop muted playsinline class="pc-media"></video>
-      </div>
-    </article>
+    </div>
+  </section>
 
-    <!-- Tarjeta 4 (IMÁGENES) -->
-    <article class="process-card">
-      <div class="pc-content">
-        <img src="BH2LOGO.png" alt="BH Logo" class="pc-logo">
-        <h2 class="pc-title">LAUNCH <span class="text-wine">& BEYOND</span></h2>
-        <p class="pc-desc">Your project is ready to go. Whether it's a new brand identity, finished content, or ongoing social media management, we make sure everything is ready for its next step.
-</p>
-      </div>
-      <div class="pc-video pc-vid-top scroll-reveal">
-        <img src="post.jpg" loading="lazy" alt="Launch and Beyond 1" class="pc-media">
-      </div>
-      <div class="pc-video pc-vid-bottom scroll-reveal" style="transition-delay: 0.2s;">
-        <img src="post2.jpg" loading="lazy" alt="Launch and Beyond 2" class="pc-media">
-      </div>
-    </article>
-
-  </div>
-</section>
-    <!-- BANNER: MARQUEE EN BUCLE -->
-    <section class="marquee-section">
-      <div class="marquee-track marquee-left">
-        <div class="marquee-group">
-          <span class="marquee-text">Let’s work together<span class="marquee-dot">.</span></span>
-          <span class="marquee-text">Let’s work together<span class="marquee-dot">.</span></span>
-          <span class="marquee-text">Let’s work together<span class="marquee-dot">.</span></span>
-          <span class="marquee-text">Let’s work together<span class="marquee-dot">.</span></span>
-        </div>
-        <div class="marquee-group" aria-hidden="true">
-          <span class="marquee-text">Let’s work together<span class="marquee-dot">.</span></span>
-          <span class="marquee-text">Let’s work together<span class="marquee-dot">.</span></span>
-          <span class="marquee-text">Let’s work together<span class="marquee-dot">.</span></span>
-          <span class="marquee-text">Let’s work together<span class="marquee-dot">.</span></span>
-        </div>
+  <!-- BANNER: FOOTER ROJO VINO -->
+  <footer class="footer-banner" id="contact">
+    <div class="footer-container">
+      <div class="footer-socials">
+        <a href="https://www.tiktok.com/@bitacorahouse" class="social-circle" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .58.04.86.12V9.32a6.34 6.34 0 0 0-.86-.06A6.33 6.33 0 0 0 3 15.59a6.34 6.34 0 0 0 10.82 4.47 6.27 6.27 0 0 0 1.88-4.47V8.5a8.2 8.2 0 0 0 4.89 1.63v-3.44h-1z"/>
+          </svg>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61594829940102" class="social-circle" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95C18.05 21.45 22 17.19 22 12z"/>
+          </svg>
+        </a>
+        <a href="https://www.instagram.com/bitacorahouse/" class="social-circle" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+        </a>
+        <a href="https://wa.me/19188155447" class="social-circle" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.78 14.07c-.24.68-1.39 1.3-1.92 1.38-.49.07-1.12.1-3.23-.77-2.7-1.12-4.44-3.86-4.57-4.04-.13-.18-1.09-1.45-1.09-2.76s.69-1.96.93-2.22c.24-.27.53-.33.71-.33.18 0 .35 0 .5.01.16.01.37-.06.58.44.22.52.74 1.8.8 1.93.07.13.11.29.02.47-.09.18-.13.29-.27.45-.13.16-.28.35-.4.47-.13.13-.27.27-.12.53.16.27.69 1.14 1.48 1.84 1.02.91 1.88 1.19 2.15 1.32.27.13.42.11.58-.07.16-.18.68-.79.86-1.06.18-.27.35-.22.6-.13.24.09 1.54.73 1.81.86.27.13.44.2.5.31.07.11.07.64-.17 1.32z"/>
+          </svg>
+        </a>
       </div>
 
-      <div class="marquee-track marquee-right">
-        <div class="marquee-group">
-          <span class="marquee-text">Let’s work together<span class="marquee-dot">.</span></span>
-          <span class="marquee-text">Let’s work together<span class="marquee-dot">.</span></span>
-          <span class="marquee-text">Let’s work together<span class="marquee-dot">.</span></span>
-          <span class="marquee-text">Let’s work together<span class="marquee-dot">.</span></span>
-        </div>
-        <div class="marquee-group" aria-hidden="true">
-          <span class="marquee-text">Let’s work together<span class="marquee-dot">.</span></span>
-          <span class="marquee-text">Let’s work together<span class="marquee-dot">.</span></span>
-          <span class="marquee-text">Let’s work together<span class="marquee-dot">.</span></span>
-          <span class="marquee-text">Let’s work together<span class="marquee-dot">.</span></span>
-        </div>
+      <div class="footer-center">
+        <h2 class="footer-title">READY TO MAKE SOMETHING TOGETHER?</h2>
+        <p>Tell us a little about your project. We'd love to hear what you have in mind.</p>
+        <a href="Contact.html" class="footer-btn-pill">BOOK A DISCOVERY CALL</a>
       </div>
-    </section>
 
-    <!-- BANNER: REVIEWS / TESTIMONIOS -->
-    <section class="reviews-section" id="reviews">
-      <div class="reviews-container">
-        <div class="reviews-grid">
-          <article class="review-card scroll-reveal">
-            <p class="review-quote">
-              “Creative, thoughtful, and always attentive to the details. They truly understand our vision.”
-            </p>
-            <span class="review-author"></span>SLATE</span>
-            <div class="review-stars" aria-label="5 estrellas">
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
-            </div>
-          </article>
-
-          <article class="review-card scroll-reveal">
-            <p class="review-quote">
-              “Working with Bitácora House has made bringing our ideas to life so much easier.”
-            </p>
-            <span class="review-author">FELIX RAMIREZ</span>
-            <div class="review-stars" aria-label="5 estrellas">
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
-            </div>
-          </article>
-
-          <article class="review-card scroll-reveal">
-            <p class="review-quote">
-              “They bring fresh ideas, great creativity, and a clear understanding of our brand.”
-            </p>
-            <span class="review-author">ACAI DELIGHT</span>
-            <div class="review-stars" aria-label="5 estrellas">
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- BANNER: FOOTER ROJO VINO -->
-   <footer class="footer-banner" id="contact">
-      <div class="footer-container">
-        <div class="footer-socials">
-          <a href="https://www.tiktok.com/@bitacorahouse" class="social-circle" aria-label="TikTok">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .58.04.86.12V9.32a6.34 6.34 0 0 0-.86-.06A6.33 6.33 0 0 0 3 15.59a6.34 6.34 0 0 0 10.82 4.47 6.27 6.27 0 0 0 1.88-4.47V8.5a8.2 8.2 0 0 0 4.89 1.63v-3.44h-1z"/>
-            </svg>
-          </a>
-          <a href="https://www.facebook.com/profile.php?id=61594829940102" class="social-circle" aria-label="Facebook">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95C18.05 21.45 22 17.19 22 12z"/>
-            </svg>
-          </a>
-          <a href="https://www.instagram.com/bitacorahouse/" class="social-circle" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-            </svg>
-          </a>
-          <a href="https://wa.me/19188155447" class="social-circle" aria-label="WhatsApp">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.78 14.07c-.24.68-1.39 1.3-1.92 1.38-.49.07-1.12.1-3.23-.77-2.7-1.12-4.44-3.86-4.57-4.04-.13-.18-1.09-1.45-1.09-2.76s.69-1.96.93-2.22c.24-.27.53-.33.71-.33.18 0 .35 0 .5.01.16.01.37-.06.58.44.22.52.74 1.8.8 1.93.07.13.11.29.02.47-.09.18-.13.29-.27.45-.13.16-.28.35-.4.47-.13.13-.27.27-.12.53.16.27.69 1.14 1.48 1.84 1.02.91 1.88 1.19 2.15 1.32.27.13.42.11.58-.07.16-.18.68-.79.86-1.06.18-.27.35-.22.6-.13.24.09 1.54.73 1.81.86.27.13.44.2.5.31.07.11.07.64-.17 1.32z"/>
-            </svg>
-          </a>
-        </div>
-
-        <div class="footer-center">
-          <h2 class="footer-title">READY TO MAKE SOMETHING TOGETHER?</h2>
-          <p>Tell us a little about your project. We'd love to hear what you have in mind.</p>
-          <a href="Contact.html" class="footer-btn-pill">BOOK A DISCOVERY CALL </a>
-        </div>
-
-        <nav class="footer-nav">
-          <a href="webs.html" class="footer-link">Home</a>
-          <a href="Brand.html" class="footer-link">Branding</a>
-          <a href="Services.html" class="footer-link">Social Media</a>
-          <a href="Contact.html" class="footer-link">Contact</a>
-        </nav>
-      </div>
-    </footer>
-
-  </div>
+      <nav class="footer-nav">
+        <a href="webs.html" class="footer-link">Home</a>
+        <a href="Brand.html" class="footer-link">Branding</a>
+        <a href="Services.html" class="footer-link">Social Media</a>
+        <a href="Contact.html" class="footer-link">Contact</a>
+      </nav>
+    </div>
+  </footer>
 
   <script src="script.js"></script>
 </body>

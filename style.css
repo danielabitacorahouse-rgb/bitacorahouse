@@ -790,7 +790,7 @@ body {
 
 .review-quote {
   font-family: var(--font-body);
-  font-size: clamp(1.2rem, 1.8vw, 1.65rem);
+  font-size: 1rem;
   line-height: 1.35;
   font-weight: 400;
   color: #f5f5f5;
@@ -4121,4 +4121,29 @@ h1, h2, h3, .headline-part, .sh-line, .footer-title {
     filter: none !important;
     opacity: 1 !important;
   }
+}
+
+@media (max-width: 900px) {
+  .video-stack-wrapper {
+    aspect-ratio: 4 / 5; /* Proporción exacta 1080x1350 */
+    height: auto;
+  }
+
+  .stacked-video {
+    object-fit: contain; /* Asegura que se vea el video completo sin ningún recorte */
+  }
+
+  .tittlebrand {
+    font-size: 1rem;
+  }
+}
+
+#bgVideo::-webkit-media-controls,
+#bgVideo::-webkit-media-controls-panel,
+#bgVideo::-webkit-media-controls-play-button,
+#bgVideo::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
