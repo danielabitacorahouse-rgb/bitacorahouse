@@ -1,4 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
+  /* ========================================================
+     0. LIMPIEZA DE URLS (/index.html y .html EN BARRA DE DIRECCIONES)
+     ======================================================== */
+  let cleanPath = window.location.pathname;
+  if (cleanPath.endsWith('/index.html')) {
+    cleanPath = cleanPath.replace(/index\.html$/, '');
+    window.history.replaceState(null, '', cleanPath + window.location.search + window.location.hash);
+  } else if (cleanPath.endsWith('.html')) {
+    cleanPath = cleanPath.replace(/\.html$/, '');
+    window.history.replaceState(null, '', cleanPath + window.location.search + window.location.hash);
+  }
+
   const isMobileDevice = window.innerWidth <= 900;
 
   const heroTextBlock = document.getElementById('heroTextBlock');
@@ -9,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const cursor = document.getElementById('customCursor');
 
   /* ========================================================
-     0. CONTROL RÁPIDO DEL LOADER (NO ESPERA A VIDEOS EXTERNOS)
+     1. CONTROL RÁPIDO DEL LOADER (NO ESPERA A VIDEOS EXTERNOS)
      ======================================================== */
   const loader = document.getElementById('contenedor-loader');
   if (loader) {
@@ -22,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ========================================================
-     1. VIDEO DE FONDO (ACTIVO EN MÓVIL, SAFARI Y ESCRITORIO)
+     2. VIDEO DE FONDO (ACTIVO EN MÓVIL, SAFARI Y ESCRITORIO)
      ======================================================== */
   const IDLE_SPEED = 0.85;
   const MAX_SPEED = 3.8;
@@ -59,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ========================================================
-     2. CARRUSEL CONTINUO + CONTROLES DE VIDEO (PLAY & MUTE)
+     3. CARRUSEL CONTINUO + CONTROLES (PLAY, MUTE Y SWIPE TÁCTIL)
      ======================================================== */
   let currentOffset = 0;
   const speed = 0.75;
@@ -79,6 +91,32 @@ document.addEventListener('DOMContentLoaded', () => {
       if (cloneVid) cloneVid.preload = 'none';
       track.appendChild(clone);
     });
+
+    track.addEventListener('mouseenter', () => { isHovered = true; });
+    track.addEventListener('mouseleave', () => { isHovered = false; });
+
+    // Deslizar carrusel de reels con el dedo en móvil
+    let reelStartX = 0;
+    let reelPrevOffset = 0;
+
+    track.addEventListener('touchstart', (e) => {
+      isHovered = true;
+      reelStartX = e.touches[0].clientX;
+      reelPrevOffset = currentOffset;
+      track.style.transition = 'none';
+    }, { passive: true });
+
+    track.addEventListener('touchmove', (e) => {
+      const deltaX = e.touches[0].clientX - reelStartX;
+      currentOffset = reelPrevOffset + deltaX;
+      if (currentOffset > 0) currentOffset -= singleLoopWidth;
+      if (Math.abs(currentOffset) >= singleLoopWidth) currentOffset += singleLoopWidth;
+      track.style.transform = `translate3d(${currentOffset}px, 0, 0)`;
+    }, { passive: true });
+
+    track.addEventListener('touchend', () => {
+      isHovered = false;
+    }, { passive: true });
   }
 
   function animateCarousel() {
@@ -92,11 +130,6 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(animateCarousel);
   }
   requestAnimationFrame(animateCarousel);
-
-  if (track) {
-    track.addEventListener('mouseenter', () => { isHovered = true; });
-    track.addEventListener('mouseleave', () => { isHovered = false; });
-  }
 
   const stepJump = cardWidth + cardGap;
 
@@ -156,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ========================================================
-     2.5. ASIGNACIÓN Y CARGA DE VIDEOS DESKTOP VS MOBILE (BRAND.HTML)
+     4. ASIGNACIÓN Y CARGA DE VIDEOS DESKTOP VS MOBILE (BRANDING)
      ======================================================== */
   const stackedVideos = document.querySelectorAll('.stacked-video');
   stackedVideos.forEach(video => {
@@ -182,7 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ========================================================
-     3. PRECARGA CONTROLADA + REPRODUCCIÓN INTELIGENTE
+     5. PRECARGA CONTROLADA + REPRODUCCIÓN INTELIGENTE DE REELS
      ======================================================== */
   const allVideos = document.querySelectorAll('.reel-video');
 
@@ -242,7 +275,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ========================================================
-     4. ACORDEÓN INTERACTIVO DE SERVICIOS
+     6. ACORDEÓN INTERACTIVO DE SERVICIOS
      ======================================================== */
   const accordionItems = document.querySelectorAll('.accordion-item');
 
@@ -260,7 +293,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ========================================================
-     5. REVELADO SCROLL: HACIA ARRIBA Y LATERALES
+     7. REVELADO SCROLL: HACIA ARRIBA Y LATERALES
      ======================================================== */
   const revealElements = document.querySelectorAll('.scroll-reveal, .slide-in-left, .slide-in-right');
 
@@ -280,7 +313,7 @@ document.addEventListener('DOMContentLoaded', () => {
   revealElements.forEach(el => revealObserver.observe(el));
 
   /* ========================================================
-     6. CURSOR MAGNÉTICO + TILT 3D (SOLO ESCRITORIO)
+     8. CURSOR MAGNÉTICO + TILT 3D (SOLO ESCRITORIO)
      ======================================================== */
   if (!isMobileDevice) {
     let mouseX = -100;
@@ -348,7 +381,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ========================================================
-     7. ANIMACIÓN DE NÚMEROS (CONTADORES)
+     9. ANIMACIÓN DE NÚMEROS (CONTADORES)
      ======================================================== */
   const counters = document.querySelectorAll('.counter');
 
@@ -392,23 +425,45 @@ document.addEventListener('DOMContentLoaded', () => {
   counters.forEach(counter => counterObserver.observe(counter));
 
   /* ========================================================
-     8. CARRUSEL DE VISUAL DIRECTION (PUNTOS DE PAGINACIÓN)
+     10. CARRUSEL DE VISUAL DIRECTION (PUNTOS + SWIPE TÁCTIL)
      ======================================================== */
   const vdTrack = document.getElementById('vdCarouselTrack');
   const vdDots = document.querySelectorAll('.vd-dot');
 
   if (vdTrack && vdDots.length > 0) {
+    let vdIndex = 0;
+    const totalVd = vdDots.length;
+
+    function goToVdSlide(index) {
+      vdIndex = (index + totalVd) % totalVd;
+      vdTrack.style.transform = `translateX(-${vdIndex * 100}%)`;
+      vdDots.forEach(d => d.classList.remove('active'));
+      vdDots[vdIndex].classList.add('active');
+    }
+
     vdDots.forEach((dot, index) => {
-      dot.addEventListener('click', () => {
-        vdTrack.style.transform = `translateX(-${index * 100}%)`;
-        vdDots.forEach(d => d.classList.remove('active'));
-        dot.classList.add('active');
-      });
+      dot.addEventListener('click', () => goToVdSlide(index));
     });
+
+    let vdStartX = 0;
+    vdTrack.addEventListener('touchstart', (e) => {
+      vdStartX = e.touches[0].clientX;
+    }, { passive: true });
+
+    vdTrack.addEventListener('touchend', (e) => {
+      const diffX = vdStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diffX) > 40) {
+        if (diffX > 0) {
+          goToVdSlide(vdIndex + 1);
+        } else {
+          goToVdSlide(vdIndex - 1);
+        }
+      }
+    }, { passive: true });
   }
 
   /* ========================================================
-     9. MINI CARRUSELES DE SOCIAL MEDIA (AUTOPLAY)
+     11. MINI CARRUSELES DE SOCIAL MEDIA (AUTOPLAY + SWIPE TÁCTIL)
      ======================================================== */
   const autoCarousels = document.querySelectorAll('.auto-carousel');
 
@@ -421,16 +476,40 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalSlides = dots.length;
     let currentIndex = 0;
 
-    setInterval(() => {
-      currentIndex = (currentIndex + 1) % totalSlides;
+    function goToPostSlide(index) {
+      currentIndex = (index + totalSlides) % totalSlides;
       cTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
       dots.forEach(dot => dot.classList.remove('active'));
       dots[currentIndex].classList.add('active');
+    }
+
+    let autoTimer = setInterval(() => {
+      goToPostSlide(currentIndex + 1);
     }, 3000);
+
+    let postStartX = 0;
+    carousel.addEventListener('touchstart', (e) => {
+      postStartX = e.touches[0].clientX;
+      clearInterval(autoTimer);
+    }, { passive: true });
+
+    carousel.addEventListener('touchend', (e) => {
+      const diffX = postStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diffX) > 35) {
+        if (diffX > 0) {
+          goToPostSlide(currentIndex + 1);
+        } else {
+          goToPostSlide(currentIndex - 1);
+        }
+      }
+      autoTimer = setInterval(() => {
+        goToPostSlide(currentIndex + 1);
+      }, 3000);
+    }, { passive: true });
   });
 
   /* ========================================================
-     10. EVENTO DE SCROLL UNIFICADO (HERO, BG SPEED Y BLUR-FOCUS)
+     12. EVENTO DE SCROLL UNIFICADO (HERO, BG SPEED Y BLUR-FOCUS)
      ======================================================== */
   const focusElements = document.querySelectorAll('.scroll-blur-focus');
   const brandHeroSection = document.getElementById('brandsHeroContainer');
@@ -520,7 +599,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { passive: true });
 
   /* ========================================================
-     11. CONTROL DE GALERÍAS DE BRANDING (1, 2 y 3 + ÚNICA)
+     13. CONTROL DE GALERÍAS DE BRANDING (1, 2 y 3 + ÚNICA)
      ======================================================== */
   const singlePrev = document.getElementById('brandGalleryPrev');
   const singleNext = document.getElementById('brandGalleryNext');
@@ -559,7 +638,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ========================================================
-     12. MODAL DE REPRODUCTOR DE VIDEO PARA CARRUSELES
+     14. MODAL DE REPRODUCTOR DE VIDEO PARA CARRUSELES
      ======================================================== */
   const modalOverlay = document.createElement('div');
   modalOverlay.className = 'video-modal-overlay';
@@ -635,160 +714,3 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
-
-
-/* ========================================================
-     8. CARRUSEL DE VISUAL DIRECTION (PUNTOS + DESLIZAR CON DEDO)
-     ======================================================== */
-  const vdTrack = document.getElementById('vdCarouselTrack');
-  const vdDots = document.querySelectorAll('.vd-dot');
-
-  if (vdTrack && vdDots.length > 0) {
-    let vdIndex = 0;
-    const totalVd = vdDots.length;
-
-    function goToVdSlide(index) {
-      vdIndex = (index + totalVd) % totalVd;
-      vdTrack.style.transform = `translateX(-${vdIndex * 100}%)`;
-      vdDots.forEach(d => d.classList.remove('active'));
-      vdDots[vdIndex].classList.add('active');
-    }
-
-    vdDots.forEach((dot, index) => {
-      dot.addEventListener('click', () => goToVdSlide(index));
-    });
-
-    // Soporte táctil (Swipe con el dedo)
-    let vdStartX = 0;
-    vdTrack.addEventListener('touchstart', (e) => {
-      vdStartX = e.touches[0].clientX;
-    }, { passive: true });
-
-    vdTrack.addEventListener('touchend', (e) => {
-      const diffX = vdStartX - e.changedTouches[0].clientX;
-      if (Math.abs(diffX) > 40) {
-        if (diffX > 0) {
-          goToVdSlide(vdIndex + 1); // Deslizar a la izquierda -> siguiente
-        } else {
-          goToVdSlide(vdIndex - 1); // Deslizar a la derecha -> anterior
-        }
-      }
-    }, { passive: true });
-  }
-
-  /* ========================================================
-     9. MINI CARRUSELES DE SOCIAL MEDIA (AUTOPLAY + DESLIZAR CON DEDO)
-     ======================================================== */
-  const autoCarousels = document.querySelectorAll('.auto-carousel');
-
-  autoCarousels.forEach(carousel => {
-    const cTrack = carousel.querySelector('.auto-carousel-track');
-    const dots = carousel.querySelectorAll('.post-dot');
-
-    if (!cTrack || dots.length === 0) return;
-
-    const totalSlides = dots.length;
-    let currentIndex = 0;
-
-    function goToPostSlide(index) {
-      currentIndex = (index + totalSlides) % totalSlides;
-      cTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
-      dots.forEach(dot => dot.classList.remove('active'));
-      dots[currentIndex].classList.add('active');
-    }
-
-    let autoTimer = setInterval(() => {
-      goToPostSlide(currentIndex + 1);
-    }, 3000);
-
-    // Soporte táctil (Swipe con el dedo)
-    let postStartX = 0;
-    carousel.addEventListener('touchstart', (e) => {
-      postStartX = e.touches[0].clientX;
-      clearInterval(autoTimer); // Pausa el autoplay mientras toca
-    }, { passive: true });
-
-    carousel.addEventListener('touchend', (e) => {
-      const diffX = postStartX - e.changedTouches[0].clientX;
-      if (Math.abs(diffX) > 35) {
-        if (diffX > 0) {
-          goToPostSlide(currentIndex + 1);
-        } else {
-          goToPostSlide(currentIndex - 1);
-        }
-      }
-      // Reanuda el autoplay después de deslizar
-      autoTimer = setInterval(() => {
-        goToPostSlide(currentIndex + 1);
-      }, 3000);
-    }, { passive: true });
-  });
-
-  // Deslizar carrusel de reels con el dedo en móvil
-  if (track) {
-    let reelStartX = 0;
-    let reelPrevOffset = 0;
-
-    track.addEventListener('touchstart', (e) => {
-      isHovered = true;
-      reelStartX = e.touches[0].clientX;
-      reelPrevOffset = currentOffset;
-      track.style.transition = 'none';
-    }, { passive: true });
-
-    track.addEventListener('touchmove', (e) => {
-      const deltaX = e.touches[0].clientX - reelStartX;
-      currentOffset = reelPrevOffset + deltaX;
-      if (currentOffset > 0) currentOffset -= singleLoopWidth;
-      if (Math.abs(currentOffset) >= singleLoopWidth) currentOffset += singleLoopWidth;
-      track.style.transform = `translate3d(${currentOffset}px, 0, 0)`;
-    }, { passive: true });
-
-    track.addEventListener('touchend', () => {
-      isHovered = false;
-    }, { passive: true });
-  }
-
-  /* ========================================================
-     13. ENVÍO SILENCIOSO DEL FORMULARIO DE CONTACTO (AJAX)
-     ======================================================== */
-  const contactForm = document.getElementById('contactForm');
-  const submitBtn = document.getElementById('submitBtn');
-  const formSuccessMsg = document.getElementById('formSuccessMsg');
-
-  if (contactForm && submitBtn && formSuccessMsg) {
-    contactForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      const originalBtnText = submitBtn.textContent;
-      submitBtn.textContent = 'Sending...';
-      submitBtn.disabled = true;
-
-      try {
-        const formData = new FormData(contactForm);
-        const response = await fetch('https://formsubmit.co/ajax/profedanielacuartin@gmail.com', {
-          method: 'POST',
-          headers: {
-            'Accept': 'application/json'
-          },
-          body: formData
-        });
-
-        if (response.ok) {
-          contactForm.style.display = 'none';
-          formSuccessMsg.classList.add('is-visible');
-          contactForm.reset();
-        } else {
-          throw new Error('Error al enviar');
-        }
-      } catch (error) {
-        submitBtn.textContent = originalBtnText;
-        submitBtn.disabled = false;
-        alert('There was an issue sending your message. Please try again or email samanthabitacorahouse@gmail.com directly.');
-      }
-    });
-  }
-
-  if (window.location.pathname.endsWith('/index.html')) {
-  window.history.replaceState(null, '', window.location.pathname.replace(/index\.html$/, ''));
-}
