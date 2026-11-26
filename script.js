@@ -33,8 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 600);
   }
 
-  /* ========================================================
-     2. VIDEO DE FONDO (ACTIVO EN MÓVIL, SAFARI Y ESCRITORIO)
+/* ========================================================
+     2. VIDEO DE FONDO (OCULTA BOTÓN PLAY EN AHORRO DE BATERÍA iOS)
      ======================================================== */
   const IDLE_SPEED = 0.85;
   const MAX_SPEED = 3.8;
@@ -50,8 +50,17 @@ document.addEventListener('DOMContentLoaded', () => {
     bgVideoEl.setAttribute('playsinline', '');
     bgVideoEl.playbackRate = isMobileDevice ? 0.75 : IDLE_SPEED;
 
+    // Solo muestra el video cuando realmente empieza a reproducirse (evita el botón Play de iOS)
+    bgVideoEl.addEventListener('playing', () => {
+      bgVideoEl.classList.add('is-playing');
+    });
+
     const startBgVideo = () => {
-      bgVideoEl.play().catch(() => {});
+      bgVideoEl.play().then(() => {
+        bgVideoEl.classList.add('is-playing');
+      }).catch(() => {
+        // Si iOS está en Modo Bajo Consumo, queda oculto sin mostrar el botón Play
+      });
     };
 
     startBgVideo();
