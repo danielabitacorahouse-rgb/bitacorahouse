@@ -4459,3 +4459,68 @@ h1, h2, h3, .headline-part, .sh-line, .footer-title {
     -webkit-backdrop-filter: blur(10px);
   }
 }
+
+/* =========================================
+   MENSAJE DE CONFIRMACIÓN DEL FORMULARIO
+   ========================================= */
+.form-success-box {
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 36px 32px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  animation: fadeSuccessIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.form-success-box.is-visible {
+  display: flex;
+}
+
+.success-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--color-wine);
+}
+
+.success-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  font-weight: 400;
+  color: #ffffff;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.success-desc {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #cccccc;
+}
+
+.submit-btn-inverted:disabled {
+  opacity: 0.65;
+  cursor: wait;
+  transform: none;
+}
+
+@keyframes fadeSuccessIn {
+  from {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+

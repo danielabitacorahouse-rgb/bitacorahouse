@@ -748,3 +748,43 @@ document.addEventListener('DOMContentLoaded', () => {
       isHovered = false;
     }, { passive: true });
   }
+
+  /* ========================================================
+     13. ENVÍO SILENCIOSO DEL FORMULARIO DE CONTACTO (AJAX)
+     ======================================================== */
+  const contactForm = document.getElementById('contactForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const formSuccessMsg = document.getElementById('formSuccessMsg');
+
+  if (contactForm && submitBtn && formSuccessMsg) {
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const originalBtnText = submitBtn.textContent;
+      submitBtn.textContent = 'Sending...';
+      submitBtn.disabled = true;
+
+      try {
+        const formData = new FormData(contactForm);
+        const response = await fetch('https://formsubmit.co/ajax/profedanielacuartin@gmail.com', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json'
+          },
+          body: formData
+        });
+
+        if (response.ok) {
+          contactForm.style.display = 'none';
+          formSuccessMsg.classList.add('is-visible');
+          contactForm.reset();
+        } else {
+          throw new Error('Error al enviar');
+        }
+      } catch (error) {
+        submitBtn.textContent = originalBtnText;
+        submitBtn.disabled = false;
+        alert('There was an issue sending your message. Please try again or email samanthabitacorahouse@gmail.com directly.');
+      }
+    });
+  }
