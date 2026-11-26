@@ -189,31 +189,46 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ========================================================
-     4. ASIGNACIÓN Y CARGA DE VIDEOS DESKTOP VS MOBILE (BRANDING)
+     4. ASIGNACIÓN Y REPRODUCCIÓN AL HACER SCROLL (BRANDING)
      ======================================================== */
   const stackedVideos = document.querySelectorAll('.stacked-video');
-  stackedVideos.forEach(video => {
-    const desktopSrc = video.getAttribute('data-desktop-src');
-    const mobileSrc = video.getAttribute('data-mobile-src');
-    const originalSrc = video.getAttribute('src');
-    let chosenSrc = null;
 
-    if (desktopSrc || mobileSrc) {
-      chosenSrc = isMobileDevice ? (mobileSrc || desktopSrc) : desktopSrc;
-    } else if (originalSrc) {
-      chosenSrc = isMobileDevice ? originalSrc.replace(/(\.[^.]+)$/, 'mob$1') : originalSrc;
-    }
+  if (stackedVideos.length > 0) {
+    const brandVideoObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const video = entry.target;
+        if (entry.isIntersecting) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      });
+    }, {
+      threshold: 0.4 // Arranca cuando el 40% del video es visible en pantalla
+    });
 
-    if (chosenSrc) {
-      video.src = chosenSrc;
-      video.muted = true;
-      video.playsInline = true;
-      video.preload = 'metadata';
-      video.load();
-      video.play().catch(() => {});
-    }
-  });
+    stackedVideos.forEach(video => {
+      const desktopSrc = video.getAttribute('data-desktop-src');
+      const mobileSrc = video.getAttribute('data-mobile-src');
+      const originalSrc = video.getAttribute('src');
+      let chosenSrc = null;
 
+      if (desktopSrc || mobileSrc) {
+        chosenSrc = isMobileDevice ? (mobileSrc || desktopSrc) : desktopSrc;
+      } else if (originalSrc) {
+        chosenSrc = isMobileDevice ? originalSrc.replace(/(\.[^.]+)$/, 'mob$1') : originalSrc;
+      }
+
+      if (chosenSrc) {
+        video.src = chosenSrc;
+        video.muted = true;
+        video.playsInline = true;
+        video.preload = 'metadata';
+        video.load();
+        brandVideoObserver.observe(video);
+      }
+    });
+  }
   /* ========================================================
      5. PRECARGA CONTROLADA + REPRODUCCIÓN INTELIGENTE DE REELS
      ======================================================== */
