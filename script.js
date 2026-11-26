@@ -788,3 +788,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  if (window.location.pathname.endsWith('/index.html')) {
+  window.history.replaceState(null, '', window.location.pathname.replace(/index\.html$/, ''));
+}
