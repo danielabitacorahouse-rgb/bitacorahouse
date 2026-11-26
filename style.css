@@ -4147,3 +4147,315 @@ h1, h2, h3, .headline-part, .sh-line, .footer-title {
   opacity: 0 !important;
   pointer-events: none !important;
 }
+
+.vd-carousel-wrapper,
+.auto-carousel,
+.carousel-viewport {
+  touch-action: pan-y;
+}
+
+/* =========================================================
+   MEDIA QUERY OPTIMIZADO PARA TABLETS (iPad / 768px - 1180px)
+   ========================================================= */
+@media (min-width: 768px) and (max-width: 1180px) {
+
+  /* 1. Desactivar cursor magnético en pantallas táctiles (iPad / Tablets) */
+  .custom-cursor {
+    display: none !important;
+  }
+
+  .brand-item,
+  .client-item,
+  .bf-image-wrapper {
+    cursor: pointer !important;
+  }
+
+  /* 2. Navegación y Hero principal (webs.html) */
+  .navbar {
+    padding: 28px 36px;
+  }
+
+  .hero-section {
+    padding: 50px 36px 36px;
+    max-width: 100%;
+  }
+
+  .headline-part {
+    font-size: clamp(2.8rem, 6.8vw, 4.8rem);
+  }
+
+  .tagline {
+    font-size: 1rem;
+    max-width: 240px;
+  }
+
+  /* 3. Carrusel de Reels */
+  :root {
+    --card-width: 220px;
+    --card-height: 390px;
+  }
+
+  /* 4. Sección Servicios / Acordeón (webs.html) */
+  .services-section {
+    padding: 70px 36px 80px;
+  }
+
+  .services-title {
+    font-size: clamp(2rem, 3.5vw, 2.6rem);
+  }
+
+  .services-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .accordion-trigger {
+    grid-template-columns: 90px 180px 1fr;
+    gap: 20px;
+  }
+
+  .item-number {
+    font-size: 1.7rem;
+  }
+
+  .item-preview {
+    width: 170px;
+    height: 54px;
+  }
+
+  .accordion-item.active .item-preview {
+    height: 180px;
+  }
+
+  .item-title {
+    font-size: clamp(1.5rem, 2.6vw, 2rem);
+  }
+
+  /* 5. Stats Grid */
+  .stats-section {
+    padding: 90px 36px;
+  }
+
+  .stats-grid {
+    gap: 50px;
+  }
+
+  /* 6. Branding Grid (webs.html) -> 3 columnas proporcionadas en tablet */
+  .brands-section {
+    padding: 80px 36px 90px;
+  }
+
+  .brands-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    max-width: 100%;
+  }
+
+  .brand-item-featured {
+    grid-column: auto;
+    max-width: 100%;
+  }
+
+  /* 7. Our Process (Stacking Cards) */
+  .process-section {
+    padding: 50px 36px 90px;
+  }
+
+  .process-card {
+    height: 62vh;
+    min-height: 460px;
+    padding-left: 6%;
+  }
+
+  .pc-content {
+    max-width: 310px;
+  }
+
+  .pc-video {
+    width: 170px;
+    height: 230px;
+  }
+
+  .pc-vid-top {
+    top: 10%;
+    right: 8%;
+  }
+
+  .pc-vid-bottom {
+    bottom: 10%;
+    right: 22%;
+  }
+
+  /* 8. Services.html -> Hero, About y Bento */
+  .services-hero {
+    padding: 70px 36px 90px;
+  }
+
+  .sh-line {
+    font-size: clamp(2.8rem, 6.2vw, 4.6rem);
+  }
+
+  .sh-2 {
+    margin-left: 10%;
+  }
+
+  .services-about {
+    padding: 0 48px;
+    margin: 60px auto 100px;
+    gap: 40px;
+  }
+
+  .services-bento-section,
+  .clients-section {
+    padding: 0 36px;
+    margin-bottom: 110px;
+  }
+
+  .s-bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .s-card {
+    padding: 32px 26px;
+    border-radius: 30px;
+  }
+
+  .s-card-dot {
+    margin-bottom: 36px;
+  }
+
+  .clients-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-bottom: 60px;
+  }
+
+  .ct-label {
+    grid-column: span 2;
+  }
+
+  /* 9. Brand.html -> Videos apilados, Galería y Feature */
+  .bh-title {
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    white-space: normal;
+    width: 85%;
+  }
+
+  .brands-video-stack {
+    padding: 0 36px;
+    margin-bottom: 90px;
+  }
+
+  .branding-gallery-section {
+    padding: 44px 36px;
+    margin-bottom: 100px;
+  }
+
+  .bg-gallery-track {
+    padding-left: 20%;
+    gap: 20px;
+  }
+
+  .bg-gallery-card {
+    width: 310px;
+  }
+
+  .branding-feature-section {
+    padding: 0 48px;
+    margin-bottom: 110px;
+  }
+
+  .bf-container {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
+  }
+
+  /* 10. Páginas de Proyectos (Felix, Slate, Acai) */
+  .Oproject-hero {
+    padding: 0 36px;
+  }
+
+  .project-hero-image-wrapper,
+  .banner-slate {
+    height: 46vh;
+    min-height: 360px;
+  }
+
+  .project-hero-content {
+    left: 64px;
+    bottom: 10%;
+  }
+
+  .project-text-section {
+    margin: 70px auto 50px;
+    padding: 0 48px;
+  }
+
+  .visual-direction-section {
+    padding: 0 36px;
+    margin-bottom: 90px;
+  }
+
+  .social-posts-section {
+    padding: 0 36px;
+    margin-bottom: 90px;
+  }
+
+  .social-posts-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  /* 11. Contact.html */
+  .contact-me-section {
+    padding: 80px 36px;
+  }
+
+  .contact-huge-title {
+    font-size: clamp(3rem, 7.5vw, 4.5rem);
+    margin-bottom: 44px;
+  }
+
+  .contact-content {
+    grid-template-columns: 1fr 1.8fr;
+    gap: 44px;
+  }
+
+  /* 12. Reviews y Footer */
+  .reviews-section {
+    padding: 60px 36px 90px;
+  }
+
+  .reviews-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  .footer-banner {
+    padding: 65px 40px;
+  }
+
+  .footer-container {
+    grid-template-columns: 60px 1fr auto;
+    gap: 36px;
+  }
+
+  .footer-title {
+    font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+  }
+
+  .s-bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .s-card-wide {
+    grid-column: span 1 !important;
+  }
+
+  .s-card:not(.s-card-active) {
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+}

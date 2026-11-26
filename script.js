@@ -635,3 +635,116 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+
+/* ========================================================
+     8. CARRUSEL DE VISUAL DIRECTION (PUNTOS + DESLIZAR CON DEDO)
+     ======================================================== */
+  const vdTrack = document.getElementById('vdCarouselTrack');
+  const vdDots = document.querySelectorAll('.vd-dot');
+
+  if (vdTrack && vdDots.length > 0) {
+    let vdIndex = 0;
+    const totalVd = vdDots.length;
+
+    function goToVdSlide(index) {
+      vdIndex = (index + totalVd) % totalVd;
+      vdTrack.style.transform = `translateX(-${vdIndex * 100}%)`;
+      vdDots.forEach(d => d.classList.remove('active'));
+      vdDots[vdIndex].classList.add('active');
+    }
+
+    vdDots.forEach((dot, index) => {
+      dot.addEventListener('click', () => goToVdSlide(index));
+    });
+
+    // Soporte táctil (Swipe con el dedo)
+    let vdStartX = 0;
+    vdTrack.addEventListener('touchstart', (e) => {
+      vdStartX = e.touches[0].clientX;
+    }, { passive: true });
+
+    vdTrack.addEventListener('touchend', (e) => {
+      const diffX = vdStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diffX) > 40) {
+        if (diffX > 0) {
+          goToVdSlide(vdIndex + 1); // Deslizar a la izquierda -> siguiente
+        } else {
+          goToVdSlide(vdIndex - 1); // Deslizar a la derecha -> anterior
+        }
+      }
+    }, { passive: true });
+  }
+
+  /* ========================================================
+     9. MINI CARRUSELES DE SOCIAL MEDIA (AUTOPLAY + DESLIZAR CON DEDO)
+     ======================================================== */
+  const autoCarousels = document.querySelectorAll('.auto-carousel');
+
+  autoCarousels.forEach(carousel => {
+    const cTrack = carousel.querySelector('.auto-carousel-track');
+    const dots = carousel.querySelectorAll('.post-dot');
+
+    if (!cTrack || dots.length === 0) return;
+
+    const totalSlides = dots.length;
+    let currentIndex = 0;
+
+    function goToPostSlide(index) {
+      currentIndex = (index + totalSlides) % totalSlides;
+      cTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[currentIndex].classList.add('active');
+    }
+
+    let autoTimer = setInterval(() => {
+      goToPostSlide(currentIndex + 1);
+    }, 3000);
+
+    // Soporte táctil (Swipe con el dedo)
+    let postStartX = 0;
+    carousel.addEventListener('touchstart', (e) => {
+      postStartX = e.touches[0].clientX;
+      clearInterval(autoTimer); // Pausa el autoplay mientras toca
+    }, { passive: true });
+
+    carousel.addEventListener('touchend', (e) => {
+      const diffX = postStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diffX) > 35) {
+        if (diffX > 0) {
+          goToPostSlide(currentIndex + 1);
+        } else {
+          goToPostSlide(currentIndex - 1);
+        }
+      }
+      // Reanuda el autoplay después de deslizar
+      autoTimer = setInterval(() => {
+        goToPostSlide(currentIndex + 1);
+      }, 3000);
+    }, { passive: true });
+  });
+
+  // Deslizar carrusel de reels con el dedo en móvil
+  if (track) {
+    let reelStartX = 0;
+    let reelPrevOffset = 0;
+
+    track.addEventListener('touchstart', (e) => {
+      isHovered = true;
+      reelStartX = e.touches[0].clientX;
+      reelPrevOffset = currentOffset;
+      track.style.transition = 'none';
+    }, { passive: true });
+
+    track.addEventListener('touchmove', (e) => {
+      const deltaX = e.touches[0].clientX - reelStartX;
+      currentOffset = reelPrevOffset + deltaX;
+      if (currentOffset > 0) currentOffset -= singleLoopWidth;
+      if (Math.abs(currentOffset) >= singleLoopWidth) currentOffset += singleLoopWidth;
+      track.style.transform = `translate3d(${currentOffset}px, 0, 0)`;
+    }, { passive: true });
+
+    track.addEventListener('touchend', () => {
+      isHovered = false;
+    }, { passive: true });
+  }
