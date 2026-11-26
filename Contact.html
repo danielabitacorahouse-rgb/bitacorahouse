@@ -1,10 +1,9 @@
-
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Brand In A Box - Built For Impact</title>
+  <title>Contact - Bitacora House</title>
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,25 +16,19 @@
 
   <!-- INICIO DEL LOADER -->
   <div id="contenedor-loader">
-    <!-- Reemplaza la ruta por la de tu archivo mp4 -->
     <video class="video-loader" autoplay loop muted playsinline>
       <source src="1116.mp4" type="video/mp4">
     </video>
   </div>
   <!-- FIN DEL LOADER -->
-<!-- Cursor Personalizado -->
-  <div class="custom-cursor" id="customCursor">
-    <!-- Reemplazamos el SVG de la flecha por el logo -->
-    <img src="BHLOGO.png" alt="Cursor" class="cursor-logo">
-  </div>
-<video id="bgVideo" src="fondologob.mp4" autoplay loop muted playsinline preload="auto"></video>
+
   <!-- Cursor Personalizado -->
   <div class="custom-cursor" id="customCursor">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-      <line x1="7" y1="17" x2="17" y2="7"></line>
-      <polyline points="7 7 17 7 17 17"></polyline>
-    </svg>
+    <img src="BHLOGO.png" alt="Cursor" class="cursor-logo">
   </div>
+
+  <!-- Video de Fondo -->
+  <video id="bgVideo" src="fondologob.mp4" autoplay loop muted playsinline preload="auto"></video>
 
   <!-- NAVEGACIÓN -->
   <header class="navbar">
@@ -50,122 +43,119 @@
     </nav>
   </header>
 
-<!-- BANNER: CONTACT ME (Modo Oscuro + Desenfoque) -->
-<section class="contact-me-section scroll-blur-focus" id="contactSection">
-  
-  <!-- Agregamos "scroll-reveal fade-in-4s" aquí -->
-  <div class="contact-container scroll-reveal fade-in-4s">
-    
-    <h1 class="contact-huge-title">HEY THERE! LET'S CHAT</h1>
-    
-    <div class="contact-content">
-      <!-- Columna Izquierda: Información -->
-      <div class="contact-info">
-        <div class="info-block">
-          <p>Based in Tulsa, Oklahoma</p>
-          <p>2026</p>
+  <!-- BANNER: CONTACT ME (Modo Oscuro + Desenfoque) -->
+  <section class="contact-me-section scroll-blur-focus" id="contactSection">
+    <div class="contact-container scroll-reveal fade-in-4s">
+      
+      <h1 class="contact-huge-title">HEY THERE! <br><div style="font-size: 3rem; ">LET'S CHAT</div></h1>
+      
+      <div class="contact-content">
+        <!-- Columna Izquierda: Información -->
+        <div class="contact-info">
+          <div class="info-block">
+            <p>2026</p>
+          </div>
+          <div class="info-block">
+            <p>Prefer email?</p>
+            <p>Skip the form and reach out directly. We'd love to hear what you have in mind.</p>
+            <p>samanthabitacorahouse@gmail.com</p>
+          </div>
         </div>
-        <div class="info-block">
-          <p>Prefer email?
 
-</p>
-          <p>Skip the form and reach out directly. We'd love to hear what you have in mind.</p>
-          <p>contact@bitacorahouse.com</p>
+        <!-- Columna Derecha: Formulario -->
+        <div class="contact-form-wrapper">
+          <form action="https://formsubmit.co/samanthabitacorahouse@gmail.com" method="POST" class="contact-form">
+            
+            <!-- Configuración de FormSubmit -->
+            <input type="hidden" name="_subject" value="Nuevo mensaje desde Bitácora House">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+
+            <div class="form-group-row">
+              <div class="form-group w-50">
+                <label>Name (required)</label>
+                <input type="text" name="First Name" placeholder="First Name" required>
+              </div>
+              <div class="form-group w-50">
+                <label class="hidden-label">&nbsp;</label>
+                <input type="text" name="Last Name" placeholder="Last Name" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Service</label>
+              <select name="Service" required>
+                <option value="" disabled selected></option>
+                <option value="Branding">Branding</option>
+                <option value="Content Creation">Content Creation</option>
+                <option value="Social Media Management">Social Media Management</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Email (required)</label>
+              <input type="email" name="Email" placeholder="" required>
+            </div>
+
+            <div class="form-checkbox">
+              <input type="checkbox" id="newsletter" name="Newsletter" value="Yes">
+              <label for="newsletter">Sign up for news and updates</label>
+            </div>
+
+            <div class="form-group">
+              <label>Project description</label>
+              <input type="text" name="Project Description" placeholder="">
+            </div>
+
+            <button type="submit" class="submit-btn-inverted">Submit</button>
+          </form>
         </div>
-      </div>
-
-      <!-- Columna Derecha: Formulario -->
-      <div class="contact-form-wrapper">
-        <form action="#" method="POST" class="contact-form">
-          
-          <div class="form-group-row">
-            <div class="form-group w-50">
-              <label>Name (required)</label>
-              <input type="text" placeholder="First Name" required>
-            </div>
-            <div class="form-group w-50">
-              <label class="hidden-label">&nbsp;</label>
-              <input type="text" placeholder="Last Name" required>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label>Service</label>
-            <select required>
-              <option value="" disabled selected></option>
-              <option value="branding">Branding</option>
-              <option value="content">Content Creation</option>
-              <option value="social">Social Media Management</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label>Email (required)</label>
-            <input type="email" placeholder="" required>
-          </div>
-
-          <div class="form-checkbox">
-            <!-- Checkbox estilo circular -->
-            <input type="checkbox" id="newsletter">
-            <label for="newsletter">Sign up for news and updates</label>
-          </div>
-
-          <div class="form-group">
-            <label>Project description</label>
-            <input type="text" placeholder="">
-          </div>
-
-          <button type="submit" class="submit-btn-inverted">Submit</button>
-        </form>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-
-
-    <!-- BANNER: FOOTER ROJO VINO -->
-   <footer class="footer-banner" id="contact">
-      <div class="footer-container">
-        <div class="footer-socials">
-          <a href="https://www.tiktok.com/@bitacorahouse" class="social-circle" aria-label="TikTok">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .58.04.86.12V9.32a6.34 6.34 0 0 0-.86-.06A6.33 6.33 0 0 0 3 15.59a6.34 6.34 0 0 0 10.82 4.47 6.27 6.27 0 0 0 1.88-4.47V8.5a8.2 8.2 0 0 0 4.89 1.63v-3.44h-1z"/>
-            </svg>
-          </a>
-          <a href="https://www.facebook.com/profile.php?id=61594829940102" class="social-circle" aria-label="Facebook">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95C18.05 21.45 22 17.19 22 12z"/>
-            </svg>
-          </a>
-          <a href="https://www.instagram.com/bitacorahouse/" class="social-circle" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-            </svg>
-          </a>
-          <a href="https://wa.me/19188155447" class="social-circle" aria-label="WhatsApp">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.78 14.07c-.24.68-1.39 1.3-1.92 1.38-.49.07-1.12.1-3.23-.77-2.7-1.12-4.44-3.86-4.57-4.04-.13-.18-1.09-1.45-1.09-2.76s.69-1.96.93-2.22c.24-.27.53-.33.71-.33.18 0 .35 0 .5.01.16.01.37-.06.58.44.22.52.74 1.8.8 1.93.07.13.11.29.02.47-.09.18-.13.29-.27.45-.13.16-.28.35-.4.47-.13.13-.27.27-.12.53.16.27.69 1.14 1.48 1.84 1.02.91 1.88 1.19 2.15 1.32.27.13.42.11.58-.07.16-.18.68-.79.86-1.06.18-.27.35-.22.6-.13.24.09 1.54.73 1.81.86.27.13.44.2.5.31.07.11.07.64-.17 1.32z"/>
-            </svg>
-          </a>
-        </div>
-
-        <div class="footer-center">
-          <h2 class="footer-title">READY TO MAKE SOMETHING TOGETHER?</h2>
-        <p>Tell us a little about your project. We'd love to hear what you have in mind.<br>Based in Tulsa, OK, working with clients globally.</p>
-          <a href="Contact.html" class="footer-btn-pill">BOOK A DISCOVERY CALL </a>
-        </div>
-
-        <nav class="footer-nav">
-          <a href="webs.html" class="footer-link">Home</a>
-          <a href="Brand.html" class="footer-link">Branding</a>
-          <a href="Services.html" class="footer-link">Social Media</a>
-          <a href="Contact.html" class="footer-link">Contact</a>
-        </nav>
+  <!-- BANNER: FOOTER ROJO VINO -->
+  <footer class="footer-banner" id="contact">
+    <div class="footer-container">
+      <div class="footer-socials">
+        <a href="https://www.tiktok.com/@bitacorahouse" class="social-circle" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .58.04.86.12V9.32a6.34 6.34 0 0 0-.86-.06A6.33 6.33 0 0 0 3 15.59a6.34 6.34 0 0 0 10.82 4.47 6.27 6.27 0 0 0 1.88-4.47V8.5a8.2 8.2 0 0 0 4.89 1.63v-3.44h-1z"/>
+          </svg>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61594829940102" class="social-circle" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95C18.05 21.45 22 17.19 22 12z"/>
+          </svg>
+        </a>
+        <a href="https://www.instagram.com/bitacorahouse/" class="social-circle" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+        </a>
+        <a href="https://wa.me/19188155447" class="social-circle" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.78 14.07c-.24.68-1.39 1.3-1.92 1.38-.49.07-1.12.1-3.23-.77-2.7-1.12-4.44-3.86-4.57-4.04-.13-.18-1.09-1.45-1.09-2.76s.69-1.96.93-2.22c.24-.27.53-.33.71-.33.18 0 .35 0 .5.01.16.01.37-.06.58.44.22.52.74 1.8.8 1.93.07.13.11.29.02.47-.09.18-.13.29-.27.45-.13.16-.28.35-.4.47-.13.13-.27.27-.12.53.16.27.69 1.14 1.48 1.84 1.02.91 1.88 1.19 2.15 1.32.27.13.42.11.58-.07.16-.18.68-.79.86-1.06.18-.27.35-.22.6-.13.24.09 1.54.73 1.81.86.27.13.44.2.5.31.07.11.07.64-.17 1.32z"/>
+          </svg>
+        </a>
       </div>
-    </footer>
+
+      <div class="footer-center">
+        <h2 class="footer-title">READY TO MAKE SOMETHING TOGETHER?</h2>
+        <p>Tell us a little about your project. We'd love to hear what you have in mind.<br>Based in Tulsa, OK, working with clients globally.</p>
+        <a href="Contact.html" class="footer-btn-pill">BOOK A DISCOVERY CALL</a>
+      </div>
+
+      <nav class="footer-nav">
+        <a href="webs.html" class="footer-link">Home</a>
+        <a href="Brand.html" class="footer-link">Branding</a>
+        <a href="Services.html" class="footer-link">Social Media</a>
+        <a href="Contact.html" class="footer-link">Contact</a>
+      </nav>
+    </div>
+  </footer>
 
   <script src="script.js"></script>
 </body>
