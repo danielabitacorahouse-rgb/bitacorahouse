@@ -4583,3 +4583,9 @@ h1, h2, h3, .headline-part, .sh-line, .footer-title {
   width: 100% !important;
   min-height: 1100px !important;
 }
+
+@media (max-width: 900px) {
+  .brands-hero-container {
+    height: 150vh; /* Acorta el recorrido de 250vh a 150vh solo en móvil */
+  }
+}
