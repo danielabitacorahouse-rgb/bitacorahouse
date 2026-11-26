@@ -4524,3 +4524,57 @@ h1, h2, h3, .headline-part, .sh-line, .footer-title {
 }
 
 
+/* =========================================
+   CALENDLY AL TAMAÑO Y POSICIÓN DEL RECUADRO ROJO
+   ========================================= */
+.contact-container {
+  max-width: 1400px; /* Aprovecha casi todo el ancho de la pantalla */
+}
+
+.contact-huge-title {
+  margin-bottom: 16px; /* Reduce el espacio debajo de LET'S CHAT */
+}
+
+.contact-content {
+  grid-template-columns: 280px 1fr; /* Columna izquierda fija y todo el resto para Calendly */
+  gap: 48px;
+  align-items: start;
+}
+
+.contact-info {
+  padding-top: 24px; /* Mantiene el texto de Tulsa alineado abajo mientras Calendly sube */
+}
+
+.contact-form-wrapper {
+  width: 100%;
+  margin-top: -45px; /* Sube el widget hasta la altura de la línea superior del recuadro rojo */
+}
+
+.calendly-inline-widget,
+.calendly-inline-widget iframe {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+
+/* Ajuste para tablets y móviles para que no se monte encima del título */
+@media (max-width: 1024px) {
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .contact-info {
+    padding-top: 0;
+  }
+
+  .contact-form-wrapper {
+    margin-top: 0;
+  }
+}
+
+.calendly-inline-widget,
+.calendly-inline-widget iframe {
+  width: 100% !important;
+  min-height: 1100px !important;
+}
